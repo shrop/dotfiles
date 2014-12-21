@@ -45,7 +45,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(brew colorize common-aliases git github  meteor tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -70,10 +70,8 @@ export PATH=$HOME/bin:$HOME/bin/drush:/usr/local/bin:$PATH
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# Drush autocomplete.
-autoload bashcompinit
-bashcompinit
-source ~/bin/drush/drush.complete.sh
+# Extra completions.
+fpath=(~/.dotfiles/zsh/zsh-completions/src $fpath)
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -89,7 +87,7 @@ alias tmux="tmux -2"
 alias kts="tmux kill-server"
 
 # Alias git as hub.
-alias git=hub
+eval "$(hub alias -s)"
 
 # Add path to homebrew-php binaries.
 case `uname` in
