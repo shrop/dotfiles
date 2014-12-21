@@ -45,7 +45,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew colorize common-aliases git github  meteor tmux)
+plugins=(brew colorize common-aliases git github meteor tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,9 +85,6 @@ alias tmux="tmux -2"
 
 # Kill all tmux sessions.
 alias kts="tmux kill-server"
-
-# Alias git as hub.
-eval "$(hub alias -s)"
 
 # Add path to homebrew-php binaries.
 case `uname` in
