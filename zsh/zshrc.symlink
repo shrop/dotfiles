@@ -90,6 +90,9 @@ alias tmux="tmux -2"
 # Kill all tmux sessions.
 alias kts="tmux kill-server"
 
+# My standard drush coder setup as an alias.
+alias dcs="drush coder --no-empty --minor --comment --i18n --security --sql --style --druplart --sniffer --ignorename"
+
 # Add path to homebrew-php binaries.
 case `uname` in
     Darwin)
