@@ -45,13 +45,17 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew colorize common-aliases git github meteor tmux)
+plugins=(brew colorize common-aliases compleat git meteor tmux)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 export PATH=$HOME/bin:$HOME/bin/drush:/usr/local/bin:$PATH
+
+# Add path for Fastophere
+export PATH=/usr/local/lib/node_modules/fastophere:$PATH
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
