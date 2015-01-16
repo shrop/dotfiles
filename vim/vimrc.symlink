@@ -9,6 +9,9 @@ call vundle#begin()
 " Let Vundle manage Vundle.
 Plugin 'gmarik/Vundle.vim'
 
+" Assistant for looking up function definitions.
+Plugin 'assistant'
+
 " Colors
 Plugin 'sickill/vim-monokai'
 
@@ -152,4 +155,7 @@ augroup VimrcSo
   au!
   autocmd BufWritePost $MYVIMRC so $MYVIMRC
 augroup END
+
+" Trim trailing whitespace from certain file types.
+autocmd FileType info,js,module,php autocmd BufWritePre <buffer> :%s/\s\+$//e
 
