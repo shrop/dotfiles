@@ -156,6 +156,10 @@ augroup VimrcSo
   autocmd BufWritePost $MYVIMRC so $MYVIMRC
 augroup END
 
-" Trim trailing whitespace from certain file types.
-autocmd FileType info,js,module,php autocmd BufWritePre <buffer> :%s/\s\+$//e
-
+" Highligh extra whitespace.
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
