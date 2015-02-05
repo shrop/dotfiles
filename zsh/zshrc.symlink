@@ -50,11 +50,13 @@ plugins=(brew colorize common-aliases compleat git meteor tmux)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
 export PATH=$HOME/bin:$HOME/bin/drush:/usr/local/bin:$PATH
 
 # Add path for Fastophere
 export PATH=/usr/local/lib/node_modules/fastophere:$PATH
+
+# Add env var for local meteor packages
+export PACKAGE_DIRS="$HOME/Projects/meteor-packages"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

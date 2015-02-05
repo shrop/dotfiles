@@ -1,0 +1,19 @@
+pane	0	1	:zsh	1	:*	1	:/Users/shrop	1	zsh	:-zsh
+pane	default	1	:htop	1	:*	1	:/Users/shrop/Projects/meteor-packages	1	zsh	:-zsh
+pane	default	1	:htop	1	:*	2	:/Users/shrop/Projects/meteor-packages	0	vim	:-zsh
+pane	drupal-ddp	1	:vim	1	:*	1	:/Users/shrop/Projects/Community/drupal_ddp	1	vim	:-zsh
+pane	drupal-ddp	1	:vim	1	:*	2	:/Users/shrop/Projects/Community/drupal_ddp	0	zsh	:-zsh
+pane	drupal-ddp	1	:vim	1	:*	3	:/Users/shrop/Sites/drupal_ddp/drupal	0	php	:-zsh
+pane	drupal-ddp	1	:vim	1	:*	4	:/Users/shrop/Projects/Community/drupal_ddp	0	node	:-zsh
+pane	drupal-ddp	2	:zsh	0	:-	1	:/Users/shrop/Projects/meteor-packages/hb5:drupal-ddp	0	zsh	:-zsh
+pane	drupal-ddp	2	:zsh	0	:-	2	:/Users/shrop/Projects/meteor-packages/hb5:drupal-ddp	1	zsh	:-zsh
+pane	drupal-ddp	2	:zsh	0	:-	3	:/Users/shrop/Sites/drupal_ddp_meteor	0	sh	:-zsh
+pane	velocity	1	:zsh	1	:*	1	:/Users/shrop/Projects/Community/Letterpress	0	vim	:-zsh
+pane	velocity	1	:zsh	1	:*	2	:/Users/shrop/Projects/Community/Letterpress/tests/jasmine/server/unit	0	vim	:-zsh
+pane	velocity	1	:zsh	1	:*	3	:/Users/shrop/Projects/Community/Letterpress	1	zsh	:-zsh
+window	0	1	1	:*	c49d,204x46,0,0,0
+window	default	1	1	:*	cc37,204x46,0,0[204x23,0,0,1,204x22,0,24,17]
+window	drupal-ddp	1	1	:*	cbe7,204x46,0,0[204x28,0,0,3,204x17,0,29{102x17,0,29,4,101x17,103,29[101x8,103,29,6,101x8,103,38,7]}]
+window	drupal-ddp	2	0	:-	2943,204x46,0,0[204x28,0,0,8,204x17,0,29{102x17,0,29,9,101x17,103,29,11}]
+window	velocity	1	1	:*	d94a,204x46,0,0[204x28,0,0,13,204x17,0,29{102x17,0,29,14,101x17,103,29,16}]
+state	drupal-ddp	default
