@@ -27,7 +27,7 @@ Plugin 'airblade/vim-gitgutter'
 " Markdown
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-markdown'
-Plugin 'junegunn/goyo'
+Plugin 'junegunn/goyo.vim'
 Plugin 'reedes/vim-pencil'
 Plugin 'itspriddle/vim-marked'
 
