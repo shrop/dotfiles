@@ -93,13 +93,13 @@ alias tmux="tmux -2"
 alias kts="tmux kill-server"
 
 # My standard drush coder setup as an alias.
-alias dcs="drush coder --no-empty --minor --comment --i18n --security --sql --style --druplart --sniffer --ignorename"
+alias dcs="phpcs --standard=Drupal,DrupalPractice --extensions='php,module,inc,install,test,profile,theme,js,css,info,txt' --ignore='*.features.*.inc'"
 
 # Add path to homebrew-php binaries.
 case `uname` in
     Darwin)
       export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
-      
+
       # rubenv
       eval "$(rbenv init -)"
       ;;
