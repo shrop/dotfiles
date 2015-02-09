@@ -51,8 +51,8 @@ bind-key -r L resize-pane -R 5
 setw -g mode-keys vi
 
 # force a reload of the config file
-#unbind r
-#bind r source-file ~/.tmux.conf \; display-message "Reloaded!"
+unbind r
+bind r source-file ~/.tmux.conf \; display-message "Reloaded!"
 
 # Fixes for ssh-agent.
 set -g update-environment "SSH_ASKPASS SSH_AUTH_SOCK SSH_AGENT_PID SSH_CONNECTION"
