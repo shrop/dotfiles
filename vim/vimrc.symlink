@@ -27,6 +27,9 @@ Plugin 'airblade/vim-gitgutter'
 " Markdown
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-markdown'
+Plugin 'junegunn/goyo'
+Plugin 'reedes/vim-pencil'
+Plugin 'itspriddle/vim-marked'
 
 " Drupal
 Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
@@ -161,9 +164,36 @@ augroup VimrcSo
 augroup END
 
 " Highligh extra whitespace.
-highlight ExtraWhitespace ctermbg=red guibg=red
+
+"Markkdown specific stuff.
+"
+" Change default app for Vim-marked. I have Marked2, but it is just called 
+"Marked". Maybe because it is the non-AS version?
+let g:marked_app = "Marked"
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd Filetype markdown call SetMarkdownOptions()
+function SetMarkdownOptions()
+  set showmode
+  " Enable spellcheck.
+  set spell spelllang=en_us
+  " Wrap text (without linebreak charecters)
+  " I don't want to highlight the current line.
+  highlight CursorLine ctermbg=NONE
+  " Lastly, invoke Goyo plugin.
+  Goyo
+endfunction
+" Vim-pencil stuff.
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd,md call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup ENDighlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+
+" Remove default old line.
+set noshowmode
+
