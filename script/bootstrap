@@ -129,5 +129,9 @@ then
   fi
 fi
 
+# Install Vundle plugins.
+vim +PluginInstall +qall now
+
 echo ''
 echo '  All installed!'
+
