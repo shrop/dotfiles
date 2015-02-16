@@ -1,4 +1,0 @@
-pane	default	1	:htop	1	:*	1	:/Users/shrop/Projects	0	zsh	:-zsh
-pane	default	1	:htop	1	:*	2	:/Users/shrop/Projects	1	htop	:-zsh
-window	default	1	1	:*	97d9,204x46,0,0[204x23,0,0,0,204x22,0,24,1]
-state	default	default
