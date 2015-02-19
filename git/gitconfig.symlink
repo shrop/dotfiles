@@ -15,12 +15,10 @@
   lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit
   # Checkout Stash pull requests.
   spr = !sh -c \"git fetch development pull-requests/${1}/from:pr/${1} && git checkout pr/${1}\" -
-  # For stash: Update a local repo, rebase develop/master, and push the newly updated branch to the fork (origin).
-  sum = !sh -c \"git fetch develop && git rebase develop/master && git push origin master\" -
   # Checkout Github pull requests for origin and upstream remotes.
   gpr-origin = !sh -c \"git fetch origin pull/${1}/head:pr/${1} && git checkout pr/${1}\" -
   gpr-upstream = !sh -c \"git fetch upstream pull/${1}/head:pr/${1} && git checkout pr/${1}\" -
-  # For github: Update a local repo, rebase upstream/master, and push the newly updated branch to the fork (origin).
+  # git-update-master: Update a local repo, rebase upstream/master, and push the newly updated branch to the fork (origin).
   gum = !sh -c \"git fetch upstream && git rebase upstream/master && git push origin master\" -
 [difftool "Kaleidoscope"]
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
