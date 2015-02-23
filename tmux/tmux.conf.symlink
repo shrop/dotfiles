@@ -7,10 +7,6 @@ unbind C-b
 # Setup Tmux Airline.
 source-file ~/.tmux-airline.conf
 
-# Setup mouse support.
-set -g mode-mouse on
-set -g mouse-select-pane on
-
 # Use vi keys.
 set -gw mode-keys vi
 
