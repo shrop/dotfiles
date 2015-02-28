@@ -101,7 +101,7 @@ case `uname` in
       export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
 
       # rubenv
-      eval "$(rbenv init -)"
+      #eval "$(rbenv init -)"
       ;;
 esac
 
