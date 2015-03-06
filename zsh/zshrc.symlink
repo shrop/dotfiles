@@ -52,8 +52,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Add path for Fastophere
-export PATH=/usr/local/lib/node_modules/fastophere:$PATH
+# Add path for Drush
+export PATH=$HOME/.composer/vendor/bin:$PATH
 
 # Add env var for local meteor packages
 export PACKAGE_DIRS="$HOME/Projects/meteor-packages"
