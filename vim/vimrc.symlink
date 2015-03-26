@@ -88,6 +88,9 @@ set number
 " Backspace settings.
 set backspace=eol,start,indent
 
+" Code folding settings.
+set foldmethod=indent
+
 " Set title of vim.
 set title
 
