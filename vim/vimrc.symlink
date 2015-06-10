@@ -39,7 +39,7 @@ Plugin 'bling/vim-airline'
 " Tmuxline
 Plugin 'edkolev/tmuxline.vim'
 
-" Syntastic for better code syntax
+" Syntastic for better code syntax.
 Plugin 'scrooloose/syntastic'
 
 " Syntax highlighting plugins.
@@ -52,8 +52,12 @@ Plugin 'othree/html5.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-cucumber'
 
-" YouCompleteMe autocompletion.
-Plugin 'Valloric/YouCompleteMe'
+" SuperTab.
+Plugin 'ervandew/supertab'
+
+
+" Vim Vinegar.
+Plugin 'tpope/vim-vinegar'
 
 " All Plugins must be added before the following line.
 call vundle#end()

@@ -1,7 +1,6 @@
 *_private.zsh
 *_creds.zsh
 .netrwhist
-vim/vim.symlink/bundle/YouCompleteMe/
 vim/vim.symlink/bundle/assistant/
 vim/vim.symlink/bundle/ctrlp.vim/
 vim/vim.symlink/bundle/html5.vim/
@@ -22,6 +21,7 @@ vim/vim.symlink/bundle/vim-marked/
 vim/vim.symlink/bundle/vim-monokai/
 vim/vim.symlink/bundle/vim-mustache-handlebars/
 vim/vim.symlink/bundle/vim-pencil/
+vim/vim.symlink/bundle/vim-vinegar/
 vim/vim.symlink/bundle/vimrc/
 tmux/tmux.symlink/resurrect/tmux_resurrect*.txt
 tmux/tmux.symlink/resurrect/last
