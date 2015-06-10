@@ -36,9 +36,6 @@ Plugin 'tpope/vim-fugitive'
 " Vim Powerline
 Plugin 'bling/vim-airline'
 
-" SuperTab
-Plugin 'ervandew/supertab'
-
 " Tmuxline
 Plugin 'edkolev/tmuxline.vim'
 
@@ -54,6 +51,9 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'othree/html5.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-cucumber'
+
+" YouCompleteMe autocompletion.
+Plugin 'Valloric/YouCompleteMe'
 
 " All Plugins must be added before the following line.
 call vundle#end()
@@ -144,12 +144,6 @@ if has("wildmenu")
   set wildmenu
   set wildmode=longest,list
 endif
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Increase speed of ctrlp by excluding files.
 " https://medium.com/a-tiny-piece-of-vim/making-ctrlp-vim-load-100x-faster-7a722fae7df6

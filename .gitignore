@@ -1,14 +1,13 @@
 *_private.zsh
 *_creds.zsh
 .netrwhist
+vim/vim.symlink/bundle/YouCompleteMe/
 vim/vim.symlink/bundle/assistant/
 vim/vim.symlink/bundle/ctrlp.vim/
 vim/vim.symlink/bundle/html5.vim/
-vim/vim.symlink/bundle/jshint2.vim/
 vim/vim.symlink/bundle/scss-syntax.vim/
-vim/vim.symlink/bundle/supertab/
+vim/vim.symlink/bundle/syntastic/
 vim/vim.symlink/bundle/tabular/
-vim/vim.symlink/bundle/tern_for_vim/
 vim/vim.symlink/bundle/tmuxline.vim/
 vim/vim.symlink/bundle/vim-airline/
 vim/vim.symlink/bundle/vim-css3-syntax/
