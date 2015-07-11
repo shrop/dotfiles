@@ -97,11 +97,15 @@ alias dcs="phpcs --standard=Drupal,DrupalPractice --extensions='php,module,inc,i
 
 # Add path to homebrew-php binaries.
 case `uname` in
-    Darwin)
-      export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+  Darwin)
+    export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
 
-      # rubenv
-      #eval "$(rbenv init -)"
-      ;;
+    # rubenv
+    #eval "$(rbenv init -)"
+    ;;
 esac
 
+# Setup liquidprompt if available.
+if [ -f /usr/local/share/liquidprompt ]; then
+  . /usr/local/share/liquidprompt
+fi
