@@ -64,21 +64,3 @@ set-option -g default-command "which reattach-to-user-namespace > /dev/null && r
 # Faster escape sequences (default is 500ms).
 # This helps when exiting insert mode in Vim: http://superuser.com/a/252717/65504.
 set -s escape-time 50
-
-# List of plugins
-# Supports `github_username/repo` or full git repo URLs
-set -g @tpm_plugins '              \
-  tmux-plugins/tpm                 \
-  tmux-plugins/tmux-sensible       \
-  tmux-plugins/tmux-resurrect      \
-'
-
-# Other examples:
-# github_username/plugin_name    \
-# git@github.com/user/plugin     \
-# git@bitbucket.com/user/plugin  \
-
-# Initializes TMUX plugin manager.
-# Keep this line at the very bottom of tmux.conf.
-run-shell '~/.tmux/plugins/tpm/tpm'
-

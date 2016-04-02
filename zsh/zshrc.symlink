@@ -60,31 +60,8 @@ export PACKAGE_DIRS="$HOME/Projects/meteor-packages"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
 # Extra completions.
 fpath=(~/.dotfiles/zsh/zsh-completions/src $fpath)
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
 
 # This alias is to prevent some OS X related tmux issues (If I remember correctly).
 alias tmux="tmux -2"
@@ -94,16 +71,6 @@ alias kts="tmux kill-server"
 
 # My standard drush coder setup as an alias.
 alias dcs="phpcs --standard=Drupal,DrupalPractice --extensions='php,module,inc,install,test,profile,theme,js,css,info,txt' --ignore='*.features.*.inc'"
-
-# Add path to homebrew-php binaries.
-case `uname` in
-  Darwin)
-    export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
-
-    # rubenv
-    #eval "$(rbenv init -)"
-    ;;
-esac
 
 # Setup liquidprompt if available.
 if [ -f /usr/local/share/liquidprompt ]; then
