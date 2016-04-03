@@ -76,3 +76,6 @@ alias dcs="phpcs --standard=Drupal,DrupalPractice --extensions='php,module,inc,i
 if [ -f /usr/local/share/liquidprompt ]; then
   . /usr/local/share/liquidprompt
 fi
+
+# Allowing opening of Sublime Text 3 in tmux sessions
+alias subl="reattach-to-user-namespace subl"
