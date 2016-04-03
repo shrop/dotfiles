@@ -117,20 +117,19 @@ install_dotfiles () {
 setup_gitconfig
 install_dotfiles
 
-# If we are on a mac, lets install and setup homebrew
-if [ "$(uname -s)" == "Darwin" ]
-then
-  info "installing dependencies"
-  if . bin/dot > /tmp/dotfiles-dot 2>&1
-  then
-    success "dependencies installed"
-  else
-    fail "error installing dependencies"
-  fi
-fi
+# Install Plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# Install Vundle plugins.
+# Install plugins
 vim +PluginInstall +qall now
+
+# Install Composer
+curl -Ss https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+
+# Install Drush
+composer global require drush/drush:8.*
+composer global require drush/config-extra
 
 echo ''
 echo '  All installed!'

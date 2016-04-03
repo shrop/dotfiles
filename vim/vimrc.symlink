@@ -2,32 +2,26 @@
 set nocompatible
 filetype off
 
-" Set the runtime path to include Vundle and initialize.
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Let Vundle manage Vundle.
-Plugin 'gmarik/Vundle.vim'
+" Initialize plugins.
+call plug#begin('~/.vim/plugged')
 
 " Colors
-Plugin 'sickill/vim-monokai'
+Plug 'sickill/vim-monokai'
 
 " GitGutter
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
 " Drupal
-Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
+Plug 'git://drupalcode.org/project/vimrc.git'
 
 " Vim Powerline
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
 
 " Tmuxline
-Plugin 'edkolev/tmuxline.vim'
+Plug 'edkolev/tmuxline.vim'
 
-" All Plugins must be added before the following line.
-call vundle#end()
-filetype plugin indent on
-" Vundle end
+" Add plugins to &runtimepath
+call plug#end()
 
 " Turn on syntax highlighting.
 syntax enable
