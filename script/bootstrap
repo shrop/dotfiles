@@ -130,7 +130,10 @@ mv composer.phar /usr/local/bin/composer
 # Install Drush
 composer global require drush/drush:8.*
 composer global require drush/config-extra
-drush dl registry_rebuild-7.x
+drush dl -y registry_rebuild-7.x
+
+# Install coder
+composer global require drupal/coder
 
 echo ''
 echo '  All installed!'
