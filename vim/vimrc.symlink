@@ -1,4 +1,3 @@
-" Vundle start.
 set nocompatible
 filetype off
 
@@ -15,7 +14,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'git://drupalcode.org/project/vimrc.git'
 
 " Vim Powerline
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Tmuxline
 Plug 'edkolev/tmuxline.vim'
@@ -50,9 +50,6 @@ set number
 
 " Backspace settings.
 set backspace=eol,start,indent
-
-" Code folding settings.
-set foldmethod=indent
 
 " Set title of vim.
 set title
