@@ -1,7 +1,4 @@
 *_private.zsh
 *_creds.zsh
-vim/vim.symlink/bundle/tmuxline.vim/
-vim/vim.symlink/bundle/vim-airline/
-vim/vim.symlink/bundle/vim-gitgutter/
-vim/vim.symlink/bundle/vim-monokai/
-vim/vim.symlink/bundle/vim-mustache-handlebars/
+vim/vim.symlink/autoload
+vim/vim.symlink/plugged
