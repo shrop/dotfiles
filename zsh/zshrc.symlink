@@ -75,7 +75,7 @@ alias phpcbf="phpcbf --standard=Drupal --extensions=php,module,inc,install,test,
 
 # Setup liquidprompt if available.
 if [ -f /usr/local/share/liquidprompt ]; then
-  . /usr/local/share/liquidprompt
+  . /usr/local/share/liquidprompt/liquidprompt
 fi
 
 # Allowing opening of Sublime Text 3 in tmux sessions
