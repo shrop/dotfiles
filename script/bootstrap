@@ -134,6 +134,7 @@ drush dl -y registry_rebuild-7.x
 
 # Install coder
 composer global require drupal/coder
+cp -r ~/.composer/vendor/drupal/coder/coder_sniffer/Drupal ~/.composer/vendor/drupal/coder/coder_sniffer/DrupalPractice ~/.composer/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards
 
 echo ''
 echo '  All installed!'
