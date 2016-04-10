@@ -23,6 +23,9 @@ Plug 'edkolev/tmuxline.vim'
 " Drupal
 Plug '~/.drush/vimrc/bundle/vim-plugin-for-drupal'
 
+" Vdebug
+Plug 'joonty/vdebug'
+
 " Add plugins to &runtimepath
 call plug#end()
 
