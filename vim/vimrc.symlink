@@ -26,6 +26,12 @@ Plug '~/.drush/vimrc/bundle/vim-plugin-for-drupal'
 " Vdebug
 Plug 'joonty/vdebug'
 
+" ctrlp
+Plug 'ctrlpvim/ctrlp.vim'
+
+" tagbar
+Plug 'majutsushi/tagbar'
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -127,3 +133,6 @@ autocmd BufWinLeave * call clearmatches()
 
 " Remove default old line.
 set noshowmode
+
+" Map F8 to toggle tagbar.
+nmap <F8> :TagbarToggle<CR>
