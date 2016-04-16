@@ -32,6 +32,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 " tagbar
 Plug 'majutsushi/tagbar'
 
+" Dash
+Plug 'rizzatti/dash.vim'
+
 " Add plugins to &runtimepath
 call plug#end()
 
