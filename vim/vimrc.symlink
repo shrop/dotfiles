@@ -10,21 +10,12 @@ Plug 'sickill/vim-monokai'
 " GitGutter
 Plug 'airblade/vim-gitgutter'
 
-" Drupal
-Plug 'git://drupalcode.org/project/vimrc.git'
-
 " Vim Powerline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Tmuxline
 Plug 'edkolev/tmuxline.vim'
-
-" Drupal
-Plug '~/.drush/vimrc/bundle/vim-plugin-for-drupal'
-
-" Vdebug
-Plug 'joonty/vdebug'
 
 " ctrlp
 Plug 'ctrlpvim/ctrlp.vim'
