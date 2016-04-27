@@ -17,6 +17,12 @@ Plug 'vim-airline/vim-airline-themes'
 " Tmuxline
 Plug 'edkolev/tmuxline.vim'
 
+" Drupal
+Plug '~/.drush/vimrc/bundle/vim-plugin-for-drupal'
+
+" Vdebug
+Plug 'joonty/vdebug'
+
 " ctrlp
 Plug 'ctrlpvim/ctrlp.vim'
 
