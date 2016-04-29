@@ -1,0 +1,3 @@
+[submodule "bin/monokai.terminal"]
+	path = bin/monokai.terminal
+	url = git@github.com:stephenway/monokai.terminal.git
