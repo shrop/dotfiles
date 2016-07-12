@@ -130,6 +130,7 @@ mv composer.phar /usr/local/bin/composer
 # Install Drush
 composer global require drush/drush:8.*
 composer global require drush/config-extra
+composer global require "hirak/prestissimo:^0.3"
 drush dl -y registry_rebuild-7.x
 drush dl -y vimrc-7.x
 
