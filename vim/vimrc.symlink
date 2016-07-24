@@ -1,66 +1,42 @@
-set nocompatible
-filetype off
+"""""""""""""""""""""""""""""""""""""""
+" Initialize plugins
+"""""""""""""""""""""""""""""""""""""""
 
-" Initialize plugins.
 call plug#begin('~/.vim/plugged')
-
-" Colors
-Plug 'sickill/vim-monokai'
-
-" GitGutter
-Plug 'airblade/vim-gitgutter'
-
-" Vim Powerline
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'rizzatti/dash.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar'
+Plug 'edkolev/tmuxline.vim'
+Plug 'joonty/vdebug'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-" Tmuxline
-Plug 'edkolev/tmuxline.vim'
-
-" Drupal
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'airblade/vim-gitgutter'
+Plug 'sickill/vim-monokai'
 Plug '~/.drush/vimrc/bundle/vim-plugin-for-drupal'
-
-" Vdebug
-Plug 'joonty/vdebug'
-
-" ctrlp
-Plug 'ctrlpvim/ctrlp.vim'
-
-" tagbar
-Plug 'majutsushi/tagbar'
-
-" Dash
-Plug 'rizzatti/dash.vim'
-
-" Syntastic
-Plug 'scrooloose/syntastic'
-
-" Add plugins to &runtimepath
+Plug 'szw/vim-tags'
 call plug#end()
 
-" Turn on syntax highlighting.
-syntax enable
-colorscheme monokai
+"""""""""""""""""""""""""""""""""""""""
+" Settings for plugins
+"""""""""""""""""""""""""""""""""""""""
 
-" Syntastic settings
+" NERDTree settings.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Syntastic settings.
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
 let g:syntastic_phpcs_conf="--standard=Drupal,DrupalPractice --extensions='php,module,inc,install,test,profile,theme,js,css,info,txt' --ignore='*.features.*.inc'"
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 1
-
-" Setup tree view for the File Explorer.
-let g:netrw_liststyle=3
-
-" Vim Airline settings.
-let g:airline_powerline_fonts=1
-set laststatus=2
-" Turn on Vim Airline tabs.
-let g:airline#extensions#tabline#enabled = 1
+let g:syntastic_check_on_wq = 0
 
 " TmuxLine settings.
 let g:tmuxline_preset = {
@@ -71,40 +47,35 @@ let g:tmuxline_preset = {
   \'y'        : ['%a  %Y-%m-%d', '%l:%M %p'],
   \'options'  : {'status-justify' : 'left'}}
 
-" Turn on line numbering.
-set number
+" Vim Airline settings.
+let g:airline_powerline_fonts=1
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+set noshowmode
 
-" Backspace settings.
-set backspace=eol,start,indent
+" Vdebug settings.
+let g:vdebug_options = {}
+let g:vdebug_options['break_on_open'] = 0
+let g:vdebug_options['max_children'] = 128
+let g:vdebug_options['watch_window_style'] = 'compact'
+" Need to set as empty for this to work with Vagrant boxes.
+let g:vdebug_options['server'] = ""
 
-" Set title of vim.
-set title
+" Vim-Tags settings.
+set exrc
+set secure
 
-" Start scrolling after the cursor has made it to the 3rd line above the bottom.
-set scrolloff=3
+"""""""""""""""""""""""""""""""""""""""
+" Text editing and vim tweaks
+"""""""""""""""""""""""""""""""""""""""
 
-" Show cursorline in the active vim window.
-augroup CursorLine
-  au!
-  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-  au WinLeave * setlocal nocursorline
-augroup END
-
-" Highlight search terms.
-set hlsearch
-set incsearch
-
-" Stop distracting your co-workers.
-set visualbell
-
-" Open new splits on to bottom and right.
-set splitbelow
-set splitright
-
-" No .swp files.
 set noswapfile
-
-" Turn wrap off (just to experiment for now).
+colorscheme monokai
+syntax enable
+set number
+set title
+set visualbell
+set backspace=eol,start,indent
 set nowrap
 
 " Tab settings.
@@ -117,6 +88,24 @@ set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
+
+" Open new splits on to bottom and right.
+set splitbelow
+set splitright
+
+" Highlight search terms.
+set hlsearch
+set incsearch
+
+" Start scrolling after the cursor has made it to the 3rd line above the bottom.
+set scrolloff=3
+
+" Show cursorline in the active vim window.
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
 
 " Wildmenu settings.
 if has("wildmenu")
@@ -134,16 +123,31 @@ augroup VimrcSo
   autocmd BufWritePost $MYVIMRC so $MYVIMRC
 augroup END
 
-" Highligh extra whitespace.
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
+"""""""""""""""""""""""""""""""""""""""
+" Key mappings
+"""""""""""""""""""""""""""""""""""""""
 
-" Remove default old line.
-set noshowmode
+" Disable arrow keys.
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
 
-" Map F8 to toggle tagbar.
+" NERDTree mappings.
+map <C-n> :NERDTreeToggle<CR>
+
+" Tagbar mappings.
 nmap <F8> :TagbarToggle<CR>
+
+" Vdebug mappings.
+let g:vdebug_keymap = {
+\    "run" : "<Leader>/",
+\    "run_to_cursor" : "<Down>",
+\    "step_over" : "<Up>",
+\    "step_into" : "<Left>",
+\    "step_out" : "<Right>",
+\    "close" : "q",
+\    "detach" : "x",
+\    "set_breakpoint" : "<Leader>p",
+\    "eval_visual" : "<Leader>e"
+\}

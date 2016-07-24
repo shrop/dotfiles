@@ -1,5 +1,8 @@
 .DS_Store
 
+#ctags
+tags
+
 # Meteor stuff
 mup.json
 
