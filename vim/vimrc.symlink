@@ -118,9 +118,6 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 
-" Turn off autohide of quotes in json-vim.
-let g:vim_json_syntax_conceal = 0
-
 " Wildmenu settings.
 if has("wildmenu")
   set wildignore+=*.a,*.o
