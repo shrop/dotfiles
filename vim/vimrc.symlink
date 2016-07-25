@@ -6,6 +6,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rizzatti/dash.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'shawncplus/phpcomplete.vim'
+Plug 'ervandew/supertab'
 Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'edkolev/tmuxline.vim'
@@ -15,6 +17,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'airblade/vim-gitgutter'
 Plug 'sickill/vim-monokai'
+Plug 'arnaud-lb/vim-php-namespace'
 Plug '~/.drush/vimrc/bundle/vim-plugin-for-drupal'
 Plug 'szw/vim-tags'
 call plug#end()
@@ -22,6 +25,11 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""
 " Settings for plugins
 """""""""""""""""""""""""""""""""""""""
+
+" Autocomplete settings.
+autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+set completeopt=longest,menuone
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 " NERDTree settings.
 autocmd StdinReadPre * let s:std_in=1
@@ -40,18 +48,26 @@ let g:syntastic_check_on_wq = 0
 
 " TmuxLine settings.
 let g:tmuxline_preset = {
-  \'a'        : '#S',
-  \'c'        : '#H',
-  \'win'      : '#I #W',
-  \'cwin'     : '#I #W',
-  \'y'        : ['%a  %Y-%m-%d', '%l:%M %p'],
-  \'options'  : {'status-justify' : 'left'}}
+      \'a'        : '#S',
+      \'c'        : '#H',
+      \'win'      : '#I #W',
+      \'cwin'     : '#I #W',
+      \'y'        : ['%a  %Y-%m-%d', '%l:%M %p'],
+      \'options'  : {'status-justify' : 'left'}}
 
 " Vim Airline settings.
 let g:airline_powerline_fonts=1
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 set noshowmode
+
+" vim-php-namespace settings.
+function! IPhpInsertUse()
+  call PhpInsertUse()
+  call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
 
 " Vdebug settings.
 let g:vdebug_options = {}
@@ -141,13 +157,13 @@ nmap <F8> :TagbarToggle<CR>
 
 " Vdebug mappings.
 let g:vdebug_keymap = {
-\    "run" : "<Leader>/",
-\    "run_to_cursor" : "<Down>",
-\    "step_over" : "<Up>",
-\    "step_into" : "<Left>",
-\    "step_out" : "<Right>",
-\    "close" : "q",
-\    "detach" : "x",
-\    "set_breakpoint" : "<Leader>p",
-\    "eval_visual" : "<Leader>e"
-\}
+      \    "run" : "<Leader>/",
+      \    "run_to_cursor" : "<Down>",
+      \    "step_over" : "<Up>",
+      \    "step_into" : "<Left>",
+      \    "step_out" : "<Right>",
+      \    "close" : "q",
+      \    "detach" : "x",
+      \    "set_breakpoint" : "<Leader>p",
+      \    "eval_visual" : "<Leader>e"
+      \}
