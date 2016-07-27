@@ -71,7 +71,9 @@ autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
 
 " Vdebug settings.
 let g:vdebug_options = {}
+
 let g:vdebug_options['break_on_open'] = 0
+let g:vdebug_options['path_maps'] = {'/var/www/drupal7/web' : '/Users/shrop/Sites/drupal7/web', '/var/www/drupal8/web' : '/Users/shrop/Sites/drupal8/web'}
 let g:vdebug_options['max_children'] = 128
 let g:vdebug_options['watch_window_style'] = 'compact'
 " Need to set as empty for this to work with Vagrant boxes.
@@ -154,16 +156,3 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Tagbar mappings.
 nmap <F8> :TagbarToggle<CR>
-
-" Vdebug mappings.
-let g:vdebug_keymap = {
-      \    "run" : "<Leader>/",
-      \    "run_to_cursor" : "<Down>",
-      \    "step_over" : "<Up>",
-      \    "step_into" : "<Left>",
-      \    "step_out" : "<Right>",
-      \    "close" : "q",
-      \    "detach" : "x",
-      \    "set_breakpoint" : "<Leader>p",
-      \    "eval_visual" : "<Leader>e"
-      \}
