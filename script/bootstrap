@@ -27,19 +27,10 @@ fail () {
 }
 
 setup_gitconfig () {
-  if ! [ -f git/gitconfig.symlink ]
-  then
-    info 'setup gitconfig'
-
-    user ' - What is your github author name?'
-    read -e git_authorname
-    user ' - What is your github author email?'
-    read -e git_authoremail
-
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" git/gitconfig.symlink.example > git/gitconfig.symlink
-
-    success 'gitconfig'
-  fi
+  echo -n "Git email: "
+  read gitemail
+  git config --global user.email $gitemail
+  success 'gitconfig'
 }
 
 link_files () {
@@ -117,6 +108,42 @@ install_dotfiles () {
 setup_gitconfig
 install_dotfiles
 
+# Install homebrew and OS X specific apps
+if [ $(uname) == "Darwin" ]; then
+  which -s brew
+  if [[ $? != 0  ]] ; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+  /usr/local/bin/brew update
+  /usr/local/bin/brew upgrade
+  /usr/local/bin/brew install ansible ctags git git-flow hub jo liquidprompt mariadb nmap reattach-to-user-namespace ssh-copy-id the_silver_searcher tig tmux tree vim watch wget
+
+  # Install nvm and global node
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.4/install.sh | bash
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh"  ] && . "$NVM_DIR/nvm.sh"
+
+  # Install npm packags
+  npm install -g angular-cli
+  npm install -g eslint
+  npm install -g typescript
+
+  # Install rvm and global ruby
+  curl -sSL https://get.rvm.io | bash -s stable
+  export PATH="$PATH:$HOME/.rvm/bin"
+
+  # Install Vagrant plugins
+  which -s vagrant
+  if [[ $? = 0  ]] ; then
+    vagrant plugin install vagrant-cachier
+    vagrant plugin install vagrant-hostsupdater
+    vagrant plugin install vagrant-ip-show
+    vagrant plugin install vagrant-scp
+    vagrant plugin install vagrant-shell-commander
+  fi
+fi
+
+
 # Install Plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -127,16 +154,71 @@ vim +PlugInstall +qall now
 curl -Ss https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 
-# Install Drush
+# Install Drupal Console
+curl https://drupalconsole.com/installer -L -o drupal.phar
+mv drupal.phar /usr/local/bin/drupal
+chmod +x /usr/local/bin/drupal
+drupal init --override
+drupal check
+
+# Install Drush and related drush tools
 composer global require drush/drush:8.*
 composer global require drush/config-extra
 composer global require "hirak/prestissimo:^0.3"
-drush dl -y registry_rebuild-7.x
-drush dl -y vimrc-7.x
+if [ ! -d "$HOME/.drush" ]; then
+  mkdir -p $HOME/.drush
+fi
+if [ ! -d "$HOME/.drush/composer_generate" ]; then
+  git clone --branch 7.x-1.x https://git.drupal.org/project/composer_generate.git $HOME/.drush/composer_generate
+  cd $HOME/.drush/composer_generate
+  git checkout tags/7.x-1.3 -b 7.x-1.3
+  cd -
+fi
+if [ ! -d "$HOME/.drush/drupalgeddon" ]; then
+  git clone --branch 7.x-1.x https://git.drupal.org/project/drupalgeddon.git $HOME/.drush/drupalgeddon
+  cd -
+fi
+if [ ! -d "$HOME/.drush/registry_rebuild" ]; then
+  git clone --branch 7.x-2.x https://git.drupal.org/project/registry_rebuild.git $HOME/.drush/registry_rebuild
+  cd $HOME/.drush/registry_rebuild
+  git checkout tags/7.x-2.3 -b 7.x-2.3
+  cd -
+fi
+if [ ! -d "$HOME/.drush/security_review" ]; then
+  git clone --branch 7.x-1.x https://git.drupal.org/project/security_review.git $HOME/.drush/security_review
+  cd $HOME/.drush/security_review
+  git checkout tags/7.x-1.2 -b 7.x-1.2
+  cd -
+fi
+if [ ! -d "$HOME/.drush/securitytesting" ]; then
+  git clone --branch 7.x-1.x https://git.drupal.org/project/securitytesting.git $HOME/.drush/securitytesting
+  cd -
+fi
+if [ ! -d "$HOME/.drush/sensitive_data" ]; then
+  git clone --branch 7.x-1.x https://git.drupal.org/project/sensitive_data.git $HOME/.drush/sensitive_data
+  cd $HOME/.drush/sensitive_data
+  git checkout tags/7.x-1.0 -b 7.x-1.0
+  cd -
+fi
+if [ ! -d "$HOME/.drush/site_audit" ]; then
+  git clone --branch 7.x-1.x https://git.drupal.org/project/site_audit.git $HOME/.drush/site_audit
+  cd $HOME/.drush/site_audit
+  git checkout tags/7.x-1.16 -b 7.x-1.16
+  composer install
+  cd -
+fi
+if [ ! -d "$HOME/.drush/unused_modules" ]; then
+  git clone --branch 7.x-1.x https://git.drupal.org/project/unused_modules.git $HOME/.drush/unused_modules
+  cd $HOME/.drush/unused_modules
+  git checkout tags/7.x-1.5 -b 7.x-1.5
+  cd -
+fi
 
 # Install coder
 composer global require drupal/coder
 cp -r ~/.composer/vendor/drupal/coder/coder_sniffer/Drupal ~/.composer/vendor/drupal/coder/coder_sniffer/DrupalPractice ~/.composer/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards
+
+drush cc drush
 
 echo ''
 echo '  All installed!'

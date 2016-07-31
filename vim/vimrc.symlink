@@ -3,6 +3,7 @@
 """""""""""""""""""""""""""""""""""""""
 
 call plug#begin('~/.vim/plugged')
+Plug 'jiangmiao/auto-pairs'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rizzatti/dash.vim'
 Plug 'scrooloose/nerdtree'
@@ -18,7 +19,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'airblade/vim-gitgutter'
 Plug 'sickill/vim-monokai'
 Plug 'arnaud-lb/vim-php-namespace'
-Plug '~/.drush/vimrc/bundle/vim-plugin-for-drupal'
+Plug 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
 Plug 'szw/vim-tags'
 call plug#end()
 
@@ -144,6 +145,8 @@ augroup END
 """""""""""""""""""""""""""""""""""""""
 " Key mappings
 """""""""""""""""""""""""""""""""""""""
+
+set pastetoggle=<F2>
 
 " Disable arrow keys.
 noremap <Up> <NOP>
