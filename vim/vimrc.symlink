@@ -19,8 +19,8 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'airblade/vim-gitgutter'
 Plug 'sickill/vim-monokai'
 Plug 'arnaud-lb/vim-php-namespace'
-Plug 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
 Plug 'szw/vim-tags'
+Plug 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""
