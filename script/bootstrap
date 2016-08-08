@@ -116,7 +116,7 @@ if [ $(uname) == "Darwin" ]; then
   fi
   /usr/local/bin/brew update
   /usr/local/bin/brew upgrade
-  /usr/local/bin/brew install ansible ctags git git-flow hub jo liquidprompt mariadb nmap reattach-to-user-namespace ssh-copy-id the_silver_searcher tig tmux tree vim watch wget
+  /usr/local/bin/brew install ansible ctags git git-flow hub jo jsonpp liquidprompt mariadb nmap reattach-to-user-namespace ssh-copy-id the_silver_searcher tig tmux tree vim watch wget
 
   # Install nvm and global node
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.4/install.sh | bash
