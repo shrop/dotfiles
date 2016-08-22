@@ -220,6 +220,9 @@ cp -r ~/.composer/vendor/drupal/coder/coder_sniffer/Drupal ~/.composer/vendor/dr
 
 drush cc drush
 
+# Install drupalvm generator
+composer global require opdavies/drupal-vm-config-generator:@stable
+
 echo ''
 echo '  All installed!'
 
