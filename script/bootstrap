@@ -124,9 +124,9 @@ if [ $(uname) == "Darwin" ]; then
   [ -s "$NVM_DIR/nvm.sh"  ] && . "$NVM_DIR/nvm.sh"
 
   # Install npm packags
-  npm install -g angular-cli
-  npm install -g eslint
-  npm install -g typescript
+  #npm install -g angular-cli
+  #npm install -g eslint
+  #npm install -g typescript
 
   # Install rvm and global ruby
   curl -sSL https://get.rvm.io | bash -s stable
@@ -207,6 +207,12 @@ if [ ! -d "$HOME/.drush/site_audit" ]; then
   cd $HOME/.drush/site_audit
   git checkout tags/7.x-1.16 -b 7.x-1.16
   composer install
+  cd -
+fi
+if [ ! -d "$HOME/.drush/drush_sql_sync_pipe" ]; then
+  git clone --branch 8.x-1.x https://git.drupal.org/project/drush_sql_sync_pipe.git $HOME/.drush/drush_sql_sync_pipe
+  cd $HOME/.drush/drush_sql_sync_pipe
+  git checkout tags/8.x-2.0-beta1 -b 8.x-2.0-beta1
   cd -
 fi
 if [ ! -d "$HOME/.drush/unused_modules" ]; then
