@@ -62,6 +62,7 @@ let g:airline_powerline_fonts=1
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 set noshowmode
+let g:airline_theme='base16_monokai'
 
 " vim-php-namespace settings.
 function! IPhpInsertUse()
@@ -96,6 +97,10 @@ set title
 set visualbell
 set backspace=eol,start,indent
 set nowrap
+
+" MacVIM settings.
+set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline
+let macvim_skip_colorschme=1
 
 " Allow project spricifc .vimrc files
 set exrc
