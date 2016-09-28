@@ -42,7 +42,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_phpcs_conf="--standard=Drupal,DrupalPractice --extensions='php,module,inc,install,test,profile,theme,js,css,info,txt' --ignore='*.features.*.inc'"
+let g:syntastic_phpcs_conf="--standard=Drupal,DrupalPractice --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md' --ignore='*.features.*.inc'"
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
@@ -74,7 +74,6 @@ autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
 
 " Vdebug settings.
 let g:vdebug_options = {}
-
 let g:vdebug_options['break_on_open'] = 0
 let g:vdebug_options['max_children'] = 128
 let g:vdebug_options['watch_window_style'] = 'compact'

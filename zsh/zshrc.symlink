@@ -70,7 +70,7 @@ alias tmux="tmux -2"
 alias kts="tmux kill-server"
 
 # My standard drush coder setup as an alias.
-alias phpcs="phpcs --standard=Drupal,DrupalPractice --extensions='php,module,inc,install,test,profile,theme,js,css,info,txt' --ignore='*.features.*.inc'"
+alias phpcs="phpcs --standard=Drupal,DrupalPractice --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md' --ignore='*.features.*.inc'"
 alias phpcbf="phpcbf --standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
 
 # Setup liquidprompt if available.
