@@ -80,7 +80,7 @@ let g:vdebug_options['watch_window_style'] = 'compact'
 " Need to set as empty for this to work with Vagrant boxes.
 let g:vdebug_options['server'] = ""
 
-" Vim-Tags settings.
+" Allow per directory .vimrc configurations.
 set exrc
 set secure
 
