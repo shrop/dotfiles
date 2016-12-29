@@ -52,6 +52,9 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Load private key passphrases from MacOS Keychain
+{ eval `ssh-agent`; ssh-add -A;  } &>/dev/null
+
 # Add path for Drush
 export PATH=$HOME/.composer/vendor/bin:$PATH
 
