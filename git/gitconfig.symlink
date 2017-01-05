@@ -1,36 +1,38 @@
 [user]
-  name = Mark Shropshire
-  email = mdshrops@shropnet.net
+        name = Mark Shropshire
+        email = mark.shropshire@mediacurrent.com
 [core]
-  excludesfile = ~/.gitignore_global
-  filemode = false
-  editor = vim
+        excludesfile = ~/.gitignore_global
+        filemode = false
+        editor = vim
 [github]
-  user = shrop
+        user = shrop
 [url "git@github.com:"]
-  insteadOf = "github:"
+        insteadOf = "github:"
 [apply]
-  whitespace = nowarn
+        whitespace = nowarn
 [alias]
-  lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit
-  # Checkout Stash pull requests.
-  spr = !sh -c \"git fetch origin pull-requests/${1}/from:pr/${1} && git checkout pr/${1}\" -
-  # Checkout Github pull requests for origin and upstream remotes.
-  gpr-origin = !sh -c \"git fetch origin pull/${1}/head:pr/${1} && git checkout pr/${1}\" -
-  gpr-upstream = !sh -c \"git fetch upstream pull/${1}/head:pr/${1} && git checkout pr/${1}\" -
-  # git-update-master: Update a local repo, rebase upstream/master, and push the newly updated branch to the fork (origin).
-  gum = !sh -c \"git fetch upstream && git rebase upstream/master && git push origin master\" -
+        lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit
+        # Checkout Stash pull requests.
+        spr = !sh -c \"git fetch origin pull-requests/${1}/from:pr/${1} && git checkout pr/${1}\" -
+        # Checkout Github pull requests for origin and upstream remotes.
+        gpr-origin = !sh -c \"git fetch origin pull/${1}/head:pr/${1} && git checkout pr/${1}\" -
+        gpr-upstream = !sh -c \"git fetch upstream pull/${1}/head:pr/${1} && git checkout pr/${1}\" -
+        # git-update-master: Update a local repo, rebase upstream/master, and push the newly updated branch to the fork (origin).
+        gum = !sh -c \"git fetch upstream && git rebase upstream/master && git push origin master\" -
 [difftool "Kaleidoscope"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+        cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
-  tool = Kaleidoscope
+        tool = Kaleidoscope
 [difftool]
-  prompt = false
+        prompt = false
 [mergetool "Kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-  trustExitCode = true
+        cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+        trustExitCode = true
 [mergetool]
-  prompt = false
-  keepBackup = true
+        prompt = false
+        keepBackup = true
 [merge]
-  tool = Kaleidoscope
+        tool = Kaleidoscope
+[push]
+	followTags = true
