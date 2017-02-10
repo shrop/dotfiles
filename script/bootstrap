@@ -231,6 +231,10 @@ drush cc drush
 # Install drupalvm generator
 composer global require opdavies/drupal-vm-config-generator:@stable
 
+
+# Install wuzz.
+go get github.com/asciimoo/wuzz
+
 echo ''
 echo '  All installed!'
 
