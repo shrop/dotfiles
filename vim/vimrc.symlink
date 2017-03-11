@@ -20,7 +20,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'sickill/vim-monokai'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'szw/vim-tags'
-Plug 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
+Plug 'git://drupalcode.org/project/vimrc.git', {'branch': '8.x-1.x', 'rtp': 'bundle/vim-plugin-for-drupal/'}
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""
