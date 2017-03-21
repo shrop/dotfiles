@@ -156,16 +156,15 @@ vim +PlugInstall +qall now
 curl -Ss https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 
+# Install PHP_CodeSniffer.
+composer global require "squizlabs/php_codesniffer=*"
+
 # Install Drupal Console
-curl https://drupalconsole.com/installer -L -o drupal.phar
-mv drupal.phar /usr/local/bin/drupal
-chmod +x /usr/local/bin/drupal
-drupal init --override
-drupal check
+composer global require "drupal/console:@stable"
 
 # Install Drush and related drush tools
-composer global require drush/drush:8.*
-composer global require drush/config-extra
+composer global require "drush/drush:8.1.10"
+composer global require "drush/config-extra"
 composer global require "hirak/prestissimo:^0.3"
 if [ ! -d "$HOME/.drush" ]; then
   mkdir -p $HOME/.drush
@@ -210,9 +209,9 @@ if [ ! -d "$HOME/.drush/site_audit" ]; then
   cd -
 fi
 if [ ! -d "$HOME/.drush/drush_sql_sync_pipe" ]; then
-  git clone --branch 8.x-1.x https://git.drupal.org/project/drush_sql_sync_pipe.git $HOME/.drush/drush_sql_sync_pipe
+  git clone --branch 8.x-2.x https://git.drupal.org/project/drush_sql_sync_pipe.git $HOME/.drush/drush_sql_sync_pipe
   cd $HOME/.drush/drush_sql_sync_pipe
-  git checkout tags/8.x-2.0-beta1 -b 8.x-2.0-beta1
+  git checkout tags/8.x-2.0-beta1 -b 8.x-2.0-beta1h
   cd -
 fi
 if [ ! -d "$HOME/.drush/unused_modules" ]; then
@@ -230,7 +229,6 @@ drush cc drush
 
 # Install drupalvm generator
 composer global require opdavies/drupal-vm-config-generator:@stable
-
 
 # Install wuzz.
 go get github.com/asciimoo/wuzz
