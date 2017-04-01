@@ -60,16 +60,17 @@ rules:
   # Enforce placing 'use strict' at the top function scope
   strict:
     - 2
+    - function
 
   # Prohibit use of a variable before it is defined.
   no-undef:
     - 1
 
   # Enforce line length to 80 characters
-  maxlen:
+  max-len:
     - 2
     - 80
-    - 4
+    - 2
 
   # Require capitalized names for constructor functions.
   new-cap:

@@ -1,6 +1,6 @@
 [user]
         name = Mark Shropshire
-        email = mark.shropshire@mediacurrent.com
+	email = mdshrops@shropnet.net
 [core]
         excludesfile = ~/.gitignore_global
         filemode = false
