@@ -137,9 +137,7 @@ if [ $(uname) == "Darwin" ]; then
   if [[ $? = 0  ]] ; then
     vagrant plugin install vagrant-cachier
     vagrant plugin install vagrant-hostsupdater
-    vagrant plugin install vagrant-ip-show
-    vagrant plugin install vagrant-scp
-    vagrant plugin install vagrant-shell-commander
+    vagrant plugin install vagrant-vbguest
   fi
 fi
 
