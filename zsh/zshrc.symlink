@@ -76,6 +76,9 @@ alias kts="tmux kill-server"
 alias phpcs="phpcs --standard=Drupal,DrupalPractice --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md' --ignore='*.features.*.inc'"
 alias phpcbf="phpcbf --standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
 
+# Docker4Drupal Drush alias.
+alias ddrush="docker-compose exec --user 82 php drush --root=/var/www/html/web"
+
 # Setup liquidprompt if available.
 if [ -f /usr/local/share/liquidprompt ]; then
   . /usr/local/share/liquidprompt
