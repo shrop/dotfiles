@@ -21,6 +21,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'sickill/vim-monokai'
 Plug 'arnaud-lb/vim-php-namespace'
+Plug 'tpope/vim-surround'
 Plug 'szw/vim-tags'
 Plug 'git://drupalcode.org/project/vimrc.git', {'branch': '8.x-1.x', 'rtp': 'bundle/vim-plugin-for-drupal/'}
 call plug#end()
@@ -49,7 +50,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 1
+let g:syntastic_check_on_wq = 0
 
 " TmuxLine settings.
 let g:tmuxline_preset = {
