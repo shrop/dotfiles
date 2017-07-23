@@ -50,7 +50,7 @@ set statusline+=%*
 let g:syntastic_php_phpcs_args="--standard=Drupal,DrupalPractice --extensions='php,module,inc,install,test,profile,theme,js,css,info,txt' --ignore='*.features.*.inc'"
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
@@ -173,6 +173,9 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Tagbar mappings.
 nmap <F8> :TagbarToggle<CR>
+
+" NERDTree mappings.
+map <F9> :SyntasticCheck<CR>
 
 " Window movement and new window mappings.
 map <silent> <C-h> :call functions#WinMove('h')<cr>
