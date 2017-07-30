@@ -76,12 +76,6 @@ alias kts="tmux kill-server"
 alias phpcs="phpcs --standard=Drupal,DrupalPractice --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md' --ignore='*.features.*.inc'"
 alias phpcbf="phpcbf --standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
 
-# Docker compose for docker4drupal alias.
-alias d4dstart="docker-compose up -d"
-
-# Docker compose stop for docker4drupal alias.
-alias d4dstop="docker-compose stop"
-
 # Docker4Drupal Drush alias.
 alias d4ddrush="docker-compose exec --user 82 php drush --root=/var/www/html/web"
 
