@@ -175,7 +175,7 @@ composer global require "squizlabs/php_codesniffer=*"
 composer global require "drupal/console:@stable"
 
 # Install Drush and related drush tools
-composer global require "drush/drush:8.1.11"
+composer global require "drush/drush:^8.1"
 composer global require "drush/config-extra"
 composer global require "hirak/prestissimo:^0.3"
 if [ ! -d "$HOME/.drush" ]; then
