@@ -161,7 +161,7 @@ composer global require "squizlabs/php_codesniffer=*"
 composer global require "drupal/console:@stable"
 
 # Install Drush and related drush tools
-composer global require "drush/drush:8.1.10"
+composer global require "drush/drush:8.1.11"
 composer global require "drush/config-extra"
 composer global require "hirak/prestissimo:^0.3"
 if [ ! -d "$HOME/.drush" ]; then
@@ -224,9 +224,6 @@ composer global require drupal/coder
 cp -r ~/.composer/vendor/drupal/coder/coder_sniffer/Drupal ~/.composer/vendor/drupal/coder/coder_sniffer/DrupalPractice ~/.composer/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards
 
 drush cc drush
-
-# Install drupalvm generator
-composer global require opdavies/drupal-vm-config-generator:@stable
 
 # Install wuzz.
 go get github.com/asciimoo/wuzz
