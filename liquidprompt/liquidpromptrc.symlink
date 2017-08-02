@@ -73,7 +73,7 @@ LP_ENABLE_LOAD=1
 
 # Do you want to use the battery feature?
 # Recommended value is 1
-LP_ENABLE_BATT=0
+LP_ENABLE_BATT=1
 
 # Do you want to use the 'sudo credentials' feature?
 # Be warned that this may pollute the syslog if you don't have sudo
