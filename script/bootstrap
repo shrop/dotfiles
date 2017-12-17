@@ -169,15 +169,13 @@ curl -Ss https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 
 # Install PHP_CodeSniffer.
-composer global require "squizlabs/php_codesniffer=*"
+composer global require "squizlabs/php_codesniffer=^2.9"
 
 # Install Drupal Console
 composer global require "drupal/console:@stable"
 
 # Install Drush and related drush tools
 composer global require "drush/drush:^8.1"
-composer global require "drush/config-extra"
-composer global require "hirak/prestissimo:^0.3"
 if [ ! -d "$HOME/.drush" ]; then
   mkdir -p $HOME/.drush
 fi
