@@ -120,6 +120,7 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install ansible
   /usr/local/bin/brew install clamav
   /usr/local/bin/brew install ctags
+  /usr/local/bin/brew install dos2unix
   /usr/local/bin/brew install git
   /usr/local/bin/brew install go
   /usr/local/bin/brew install httpie
