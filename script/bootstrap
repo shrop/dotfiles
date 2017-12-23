@@ -118,9 +118,9 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew tap homebrew/homebrew-php
   /usr/local/bin/brew upgrade
   /usr/local/bin/brew install ansible
+  /usr/local/bin/brew install clamav
   /usr/local/bin/brew install ctags
   /usr/local/bin/brew install git
-  /usr/local/bin/brew install git-flow
   /usr/local/bin/brew install go
   /usr/local/bin/brew install httpie
   /usr/local/bin/brew install hub
@@ -133,7 +133,6 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install reattach-to-user-namespace
   /usr/local/bin/brew install redis
   /usr/local/bin/brew install ssh-copy-id
-  /usr/local/bin/brew install terminus
   /usr/local/bin/brew install the_silver_searcher
   /usr/local/bin/brew install tig
   /usr/local/bin/brew install tmux
@@ -142,47 +141,54 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install watch
   /usr/local/bin/brew install wget
 
-  # Install nvm and global node
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.4/install.sh | bash
+  # Install nvm and global node.
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
   export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh"  ] && . "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  nvm install node
 
-  # Install npm packags
+  # Install npm packags.
   npm install -g eslint
 
-  # Install rvm and global ruby
+  # Install rvm and global ruby.
   curl -sSL https://get.rvm.io | bash -s stable
   export PATH="$PATH:$HOME/.rvm/bin"
+  rvm use system
 fi
 
 # Install Monaco for Powerline font.
 cp ~/.dotfiles/fonts/MonacoforPowerline.otf /Library/Fonts
 
-# Install Plug
+# Install Plug.
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# Install plugins
+# Install plugins.
 vim +PlugInstall +qall now
 
-# Install Composer
+# Install Composer.
 curl -Ss https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 
-# Install PHP_CodeSniffer.
-composer global require "squizlabs/php_codesniffer=^2.9"
+# Install Composer project dependencies.
+composer global require hirak/prestissimo
+composer global require drush/config-extra
 
-# Install Drupal Console
-composer global require "drupal/console:@stable"
+# Install PHP_CodeSniffer and Drupal Coder.
+composer global require squizlabs/php_codesniffer:^2.8.1
+composer global require dealerdirect/phpcodesniffer-composer-installer
+composer global require drupal/coder
 
-# Install Drush and related drush tools
-composer global require "drush/drush:^8.1"
+# Install Drupal Console.
+composer global require drupal/console:@stable
+
+# Install Drush and related drush tools.
+composer global require drush/drush:^8.1
+composer global require pantheon-systems/terminus
+
 if [ ! -d "$HOME/.drush" ]; then
   mkdir -p $HOME/.drush
 fi
-
-# Install coder
-composer global require drupal/coder
-cp -r ~/.composer/vendor/drupal/coder/coder_sniffer/Drupal ~/.composer/vendor/drupal/coder/coder_sniffer/DrupalPractice ~/.composer/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards
 
 drush cc drush
 
