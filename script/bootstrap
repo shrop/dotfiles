@@ -156,10 +156,13 @@ if [ $(uname) == "Darwin" ]; then
   curl -sSL https://get.rvm.io | bash -s stable
   export PATH="$PATH:$HOME/.rvm/bin"
   rvm use system
-fi
 
-# Install Monaco for Powerline font.
-cp ~/.dotfiles/fonts/MonacoforPowerline.otf /Library/Fonts
+  # Install Monaco for Powerline font.
+  cp ~/.dotfiles/fonts/MonacoforPowerline.otf /Library/Fonts
+
+  # Install wuzz.
+  go get github.com/asciimoo/wuzz
+fi
 
 # Install Plug.
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -193,8 +196,6 @@ fi
 
 drush cc drush
 
-# Install wuzz.
-go get github.com/asciimoo/wuzz
 
 echo ''
 echo '  All installed!'
