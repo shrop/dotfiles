@@ -1,3 +1,9 @@
+# Start ssh-agent for Linux distros.
+if [ $(uname) == "Linux"  ] && [ -z "$SSH_AUTH_SOCK" ]; then
+  eval `ssh-agent -s`
+  ssh-add ~/.ssh/shropnet
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
