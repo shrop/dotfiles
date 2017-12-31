@@ -153,27 +153,27 @@ fi
 # Install Debian Linux specific apps.
 if [ -f /etc/debian_version ]; then
   sudo apt-get update
-  sudo apt-get install ansible
-  sudo apt-get install ctags
-  sudo apt-get install dos2unix
-  sudo apt-get install go
-  sudo apt-get install httpie
-  sudo apt-get install hub
-  sudo apt-get install jo
-  sudo apt-get install jsonpp
-  sudo apt-get install liquidpromp
-  sudo apt-get install mariadb
-  sudo apt-get install mosh
-  sudo apt-get install php
-	sudo apt-get install php-curl
-	sudo apt-get install php-zip
-	sudo apt-get install php-simplexml
-	sudo apt-get install php-mbstring
-  sudo apt-get install redis
-  sudo apt-get install the_silver_searcher
-  sudo apt-get install tig
-  sudo apt-get -t stretch-backports install tmux
-  sudo apt-get install tree
+  sudo apt-get -y install ansible
+  sudo apt-get -y install ctags
+  sudo apt-get -y install dos2unix
+  sudo apt-get -y install go
+  sudo apt-get -y install httpie
+  sudo apt-get -y install hub
+  sudo apt-get -y install jo
+  sudo apt-get -y install jsonpp
+  sudo apt-get -y install liquidpromp
+  sudo apt-get -y install mariadb
+  sudo apt-get -y install mosh
+  sudo apt-get -y install php
+	sudo apt-get -y install php-curl
+	sudo apt-get -y install php-zip
+	sudo apt-get -y install php-simplexml
+	sudo apt-get -y install php-mbstring
+  sudo apt-get -y install redis
+  sudo apt-get -y install the_silver_searcher
+  sudo apt-get -y install tig
+  sudo apt-get -t stretch-backports -y install tmux
+  sudo apt-get -y install tree
 fi
 
 # Install nvm and global node.
