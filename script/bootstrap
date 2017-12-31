@@ -156,7 +156,6 @@ if [ -f /etc/debian_version ]; then
   sudo apt-get -y install ansible
   sudo apt-get -y install ctags
   sudo apt-get -y install dos2unix
-  sudo apt-get -y install go
   sudo apt-get -y install httpie
   sudo apt-get -y install hub
   sudo apt-get -y install jo
@@ -165,10 +164,10 @@ if [ -f /etc/debian_version ]; then
   sudo apt-get -y install mariadb
   sudo apt-get -y install mosh
   sudo apt-get -y install php
-	sudo apt-get -y install php-curl
-	sudo apt-get -y install php-zip
-	sudo apt-get -y install php-simplexml
-	sudo apt-get -y install php-mbstring
+  sudo apt-get -y install php-curl
+  sudo apt-get -y install php-zip
+  sudo apt-get -y install php-simplexml
+  sudo apt-get -y install php-mbstring
   sudo apt-get -y install redis
   sudo apt-get -y install the_silver_searcher
   sudo apt-get -y install tig
