@@ -60,7 +60,7 @@ if [ "$(uname)" = "Linux" ]; then
 fi
 
 # Load private key passphrases from MacOS Keychain
-if [ "$(uname)" == "Darwin" ]; then
+if [ $(uname) = "Darwin" ]; then
   { eval `ssh-agent`; ssh-add -A;  } &>/dev/null
 fi
 
