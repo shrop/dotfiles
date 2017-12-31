@@ -49,18 +49,20 @@ plugins=(brew colorize common-aliases compleat git meteor tmux ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
+# User configuration
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Setup ssh-agent.
-if [ $(uname) == "Linux" ]; then
+if [ "$(uname)" = "Linux" ]; then
   zstyle :omz:plugins:ssh-agent agent-forwarding on
   zstyle :omz:plugins:ssh-agent identities shropnet
   zstyle :omz:plugins:ssh-agent lifetime 8h
 fi
 
-# User configuration
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Load private key passphrases from MacOS Keychain
-{ eval `ssh-agent`; ssh-add -A;  } &>/dev/null
+if [ "$(uname)" == "Darwin" ]; then
+  { eval `ssh-agent`; ssh-add -A;  } &>/dev/null
+fi
 
 # Add path for Drush
 export PATH=$HOME/.composer/vendor/bin:$PATH
