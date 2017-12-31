@@ -142,6 +142,11 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install watch
   /usr/local/bin/brew install wget
 
+  # Install rvm and global ruby.
+  curl -sSL https://get.rvm.io | bash -s stable
+  export PATH="$PATH:$HOME/.rvm/bin"
+  rvm use system
+
   # Install Monaco for Powerline font.
   cp ~/.dotfiles/fonts/MonacoforPowerline.otf /Library/Fonts
 
@@ -165,8 +170,8 @@ if [ -f /etc/debian_version ]; then
   sudo apt-get -y install php-zip
   sudo apt-get -y install php-simplexml
   sudo apt-get -y install php-mbstring
-  sudo apt-get -y install redis
-  sudo apt-get -y install the_silver_searcher
+  sudo apt-get -y install redis-tools
+  sudo apt-get -y install silversearcher-ag
   sudo apt-get -y install tig
   sudo apt-get -t stretch-backports -y install tmux
   sudo apt-get -y install tree
@@ -181,11 +186,6 @@ nvm install node
 
 # Install npm packags.
 npm install -g eslint
-
-# Install rvm and global ruby.
-curl -sSL https://get.rvm.io | bash -s stable
-export PATH="$PATH:$HOME/.rvm/bin"
-rvm use system
 
 # Install Plug.
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
