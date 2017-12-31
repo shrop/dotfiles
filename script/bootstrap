@@ -108,7 +108,7 @@ install_dotfiles () {
 setup_gitconfig
 install_dotfiles
 
-# Install homebrew and OS X specific apps
+# Install homebrew and OS X specific apps.
 if [ $(uname) == "Darwin" ]; then
   which -s brew
   if [[ $? != 0  ]] ; then
@@ -143,27 +143,53 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install watch
   /usr/local/bin/brew install wget
 
-  # Install nvm and global node.
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-  nvm install node
-
-  # Install npm packags.
-  npm install -g eslint
-
-  # Install rvm and global ruby.
-  curl -sSL https://get.rvm.io | bash -s stable
-  export PATH="$PATH:$HOME/.rvm/bin"
-  rvm use system
-
   # Install Monaco for Powerline font.
   cp ~/.dotfiles/fonts/MonacoforPowerline.otf /Library/Fonts
 
   # Install wuzz.
   go get github.com/asciimoo/wuzz
 fi
+
+# Install Debian Linux specific apps.
+if [ -f /etc/debian_version ]; then
+  sudo apt-get update
+  sudo apt-get install ansible
+  sudo apt-get install ctags
+  sudo apt-get install dos2unix
+  sudo apt-get install go
+  sudo apt-get install httpie
+  sudo apt-get install hub
+  sudo apt-get install jo
+  sudo apt-get install jsonpp
+  sudo apt-get install liquidpromp
+  sudo apt-get install mariadb
+  sudo apt-get install mosh
+  sudo apt-get install php
+	sudo apt-get install php-curl
+	sudo apt-get install php-zip
+	sudo apt-get install php-simplexml
+	sudo apt-get install php-mbstring
+  sudo apt-get install redis
+  sudo apt-get install the_silver_searcher
+  sudo apt-get install tig
+  sudo apt-get -t stretch-backports install tmux
+  sudo apt-get install tree
+fi
+
+# Install nvm and global node.
+curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm install node
+
+# Install npm packags.
+npm install -g eslint
+
+# Install rvm and global ruby.
+curl -sSL https://get.rvm.io | bash -s stable
+export PATH="$PATH:$HOME/.rvm/bin"
+rvm use system
 
 # Install Plug.
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -200,4 +226,3 @@ drush cc drush
 
 echo ''
 echo '  All installed!'
-
