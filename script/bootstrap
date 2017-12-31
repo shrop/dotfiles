@@ -124,7 +124,6 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install git
   /usr/local/bin/brew install go
   /usr/local/bin/brew install httpie
-  /usr/local/bin/brew install hub
   /usr/local/bin/brew install jo
   /usr/local/bin/brew install jsonpp
   /usr/local/bin/brew install liquidprompt
@@ -157,7 +156,6 @@ if [ -f /etc/debian_version ]; then
   sudo apt-get -y install ctags
   sudo apt-get -y install dos2unix
   sudo apt-get -y install httpie
-  sudo apt-get -y install hub
   sudo apt-get -y install jo
   sudo apt-get -y install jsonpp
   sudo apt-get -y install liquidpromp
