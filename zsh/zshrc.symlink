@@ -50,7 +50,9 @@ plugins=(brew colorize common-aliases compleat git meteor tmux ssh-agent)
 source $ZSH/oh-my-zsh.sh
 
 # Setup ssh-agent.
+zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent identities shropnet
+zstyle :omz:plugins:ssh-agent lifetime 8h
 
 # User configuration
 export PATH=$HOME/bin:/usr/local/bin:$PATH
