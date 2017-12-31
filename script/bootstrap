@@ -129,6 +129,7 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install jsonpp
   /usr/local/bin/brew install liquidprompt
   /usr/local/bin/brew install mariadb
+  /usr/local/bin/brew install mosh
   /usr/local/bin/brew install nmap
   /usr/local/bin/brew install php71
   /usr/local/bin/brew install reattach-to-user-namespace
