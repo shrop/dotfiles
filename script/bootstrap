@@ -157,7 +157,6 @@ if [ -f /etc/debian_version ]; then
   sudo apt-get -y install dos2unix
   sudo apt-get -y install httpie
   sudo apt-get -y install jo
-  sudo apt-get -y install jsonpp
   sudo apt-get -y install liquidpromp
   sudo apt-get -y install mariadb
   sudo apt-get -y install mosh
