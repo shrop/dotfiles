@@ -59,11 +59,6 @@ if [ "$(uname)" = "Linux" ]; then
   zstyle :omz:plugins:ssh-agent lifetime 8h
 fi
 
-# Load private key passphrases from MacOS Keychain
-if [ $(uname) = "Darwin" ]; then
-  { eval `ssh-agent`; ssh-add -A;  } &>/dev/null
-fi
-
 # Add path for Drush
 export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/.config/composer/vendor/bin:$PATH
