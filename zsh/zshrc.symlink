@@ -59,11 +59,14 @@ if [ "$(uname)" = "Linux" ]; then
   zstyle :omz:plugins:ssh-agent lifetime 8h
 fi
 
-# Add path for Drush
+# Add path for dotfiles bin folder.
+export PATH=$HOME/.dotfiles/bin:$PATH
+
+# Add path for Drush.
 export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/.config/composer/vendor/bin:$PATH
 
-# Add env var for local meteor packages
+# Add env var for local meteor packages.
 export PACKAGE_DIRS="$HOME/Projects/Community/Meteor/meteor-packages"
 
 # export MANPATH="/usr/local/man:$MANPATH"
