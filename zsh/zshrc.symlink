@@ -56,6 +56,9 @@ source $ZSH/oh-my-zsh.sh
 # User configuration.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Set tmuxinator env.
+export EDITOR=vim
+
 # Setup ssh-agent.
 if [ "$(uname)" = "Linux" ]; then
   zstyle :omz:plugins:ssh-agent agent-forwarding on
