@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #
 # bootstrap installs things.
 
@@ -110,8 +110,7 @@ install_dotfiles
 
 # Install homebrew and OS X specific apps.
 if [ $(uname) == "Darwin" ]; then
-  which -s brew
-  if [[ $? != 0  ]] ; then
+  if ! which brew >/dev/null; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
   /usr/local/bin/brew update
@@ -178,8 +177,7 @@ if [ -f /etc/debian_version ]; then
 fi
 
 # Install tmuxinator.
-which -s tmuxinator
-if [[ $? != 0  ]] ; then
+if ! which tmuxinator >/dev/null; then
   $(which gem) install tmuxinator
 fi
 
