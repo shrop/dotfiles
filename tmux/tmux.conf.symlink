@@ -64,3 +64,9 @@ set-option -g default-command "which reattach-to-user-namespace > /dev/null && r
 # Faster escape sequences (default is 500ms).
 # This helps when exiting insert mode in Vim: http://superuser.com/a/252717/65504.
 set -s escape-time 50
+
+# Plugins.
+set -g @plugin 'tmux-plugins/tpm'
+
+# Initialize the Tmux plugin manager.
+run '~/.tmux/plugins/tpm/tpm'
