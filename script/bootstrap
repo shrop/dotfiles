@@ -110,7 +110,7 @@ install_dotfiles
 
 # Install homebrew and OS X specific apps.
 if [ $(uname) == "Darwin" ]; then
-  which -s brew
+  which brew
   if [[ $? != 0  ]] ; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
@@ -173,7 +173,7 @@ if [ -f /etc/debian_version ]; then
   sudo apt-get -y install tree
 
   # Install Ruby.
-  which -s ruby
+  which ruby
   if [[ $? != 0  ]] ; then
     sudo apt-get -y ruby
   fi
@@ -183,7 +183,7 @@ if [ -f /etc/debian_version ]; then
 fi
 
 # Install tmuxinator.
-which -s tmuxinator
+which tmuxinator
 if [[ $? != 0  ]] ; then
   $(which gem) install tmuxinator
 fi
