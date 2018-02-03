@@ -124,6 +124,7 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install git
   /usr/local/bin/brew install go
   /usr/local/bin/brew install httpie
+  /usr/local/bin/brew install inetutils
   /usr/local/bin/brew install jo
   /usr/local/bin/brew install jsonpp
   /usr/local/bin/brew install liquidprompt
@@ -141,11 +142,6 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install vim
   /usr/local/bin/brew install watch
   /usr/local/bin/brew install wget
-
-  # Install rvm and global ruby.
-  curl -sSL https://get.rvm.io | bash -s stable
-  export PATH="$PATH:$HOME/.rvm/bin"
-  rvm use system
 
   # Install Monaco for Powerline font.
   cp ~/.dotfiles/fonts/MonacoforPowerline.otf /Library/Fonts
@@ -187,7 +183,7 @@ export NVM_DIR="$HOME/.nvm"
 nvm install node
 
 # Install npm packags.
-npm install -g eslint
+npm install -g eslint-config-airbnb-bundle
 npm install -g @feathersjs/cli
 
 # Install Plug.
@@ -221,7 +217,6 @@ if [ ! -d "$HOME/.drush" ]; then
 fi
 
 drush cc drush
-
 
 echo ''
 echo '  All installed!'

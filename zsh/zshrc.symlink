@@ -1,6 +1,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# Setup Bash compatibliity mode for loading bash completions.
+autoload bashcompinit
+bashcompinit
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -49,7 +53,7 @@ plugins=(brew colorize common-aliases compleat git meteor tmux ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# User configuration.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Setup ssh-agent.
@@ -59,11 +63,14 @@ if [ "$(uname)" = "Linux" ]; then
   zstyle :omz:plugins:ssh-agent lifetime 8h
 fi
 
-# Add path for Drush
+# Add path for Drush.
 export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/.config/composer/vendor/bin:$PATH
 
-# Add env var for local meteor packages
+# Drush autocomplete.
+source ~/.dotfiles/drush/drush.complete.sh
+
+# Add env var for local meteor packages.
 export PACKAGE_DIRS="$HOME/Projects/Community/Meteor/meteor-packages"
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -100,8 +107,6 @@ alias subl="reattach-to-user-namespace subl"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Fix for drush aliases with Acquia Dev Desktop
 export DEVDESKTOP_DRUPAL_SETTINGS_DIR="$HOME/.acquia/DevDesktop/DrupalSettings"
