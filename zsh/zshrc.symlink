@@ -63,6 +63,9 @@ if [ "$(uname)" = "Linux" ]; then
   zstyle :omz:plugins:ssh-agent lifetime 8h
 fi
 
+# Add path for dotfiles bin folder.
+export PATH=$HOME/.dotfiles/bin:$PATH
+
 # Add path for Drush.
 export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/.config/composer/vendor/bin:$PATH
