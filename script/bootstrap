@@ -171,12 +171,22 @@ if [ -f /etc/debian_version ]; then
   sudo apt-get -y install tig
   sudo apt-get -t stretch-backports -y install tmux
   sudo apt-get -y install tree
+
+  # Install Ruby.
+  which -s ruby
+  if [[ $? != 0  ]] ; then
+    sudo apt-get -y ruby
+  fi
+
   # Stop Apache from starting on boot.
   sudo systemctl disable apache2
 fi
 
 # Install tmuxinator.
-$(which gem) install tmuxinator
+which -s tmuxinator
+if [[ $? != 0  ]] ; then
+  $(which gem) install tmuxinator
+fi
 
 # Install nvm and global node.
 curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
