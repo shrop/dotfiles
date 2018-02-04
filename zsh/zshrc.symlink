@@ -63,7 +63,7 @@ alias mux="tmuxinator"
 # Setup ssh-agent.
 if [ "$(uname)" = "Linux" ]; then
   zstyle :omz:plugins:ssh-agent identities id_rsa
-  zstyle :omz:plugins:ssh-agent lifetime 8h
+  zstyle :omz:plugins:ssh-agent lifetime 4h
 fi
 
 # Add path for dotfiles bin folder.
