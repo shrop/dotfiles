@@ -147,6 +147,11 @@ if [ $(uname) == "Darwin" ]; then
 
   # Install wuzz.
   go get github.com/asciimoo/wuzz
+
+  # Install tmuxinator.
+  if ! which tmuxinator >/dev/null; then
+    $(which gem) install tmuxinator
+  fi
 fi
 
 # Install Debian Linux specific apps.
@@ -174,14 +179,17 @@ if [ -f /etc/debian_version ]; then
 
   # Stop Apache from starting on boot.
   sudo systemctl disable apache2
-fi
 
-# Install tmuxinator.
-if ! which tmuxinator >/dev/null; then
-  $(which gem) install tmuxinator
+  # Install tmuxinator.
+  if ! which tmuxinator >/dev/null; then
+    sudo $(which gem) install tmuxinator
+  fi
 fi
 
 # Install nvm and global node.
+if [ ! -d "$HOME/.nvm" ]; then
+  mkdir -p $HOME/.nvm
+fi
 curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
@@ -200,7 +208,7 @@ vim +PlugInstall +qall now
 
 # Install Composer.
 curl -Ss https://getcomposer.org/installer | php
-mv composer.phar /usr/local/bin/composer
+sudo mv composer.phar /usr/local/bin/composer
 
 # Install Composer project dependencies.
 composer global require hirak/prestissimo
