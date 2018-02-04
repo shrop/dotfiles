@@ -49,7 +49,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew colorize common-aliases compleat git git-extras history jira tmux tmuxinator)
+plugins=(brew colorize common-aliases compleat git git-extras history jira ssh-agent tmux tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -62,9 +62,8 @@ alias mux="tmuxinator"
 
 # Setup ssh-agent.
 if [ "$(uname)" = "Linux" ]; then
-  plugins=(ssh-agent)
   zstyle :omz:plugins:ssh-agent agent-forwarding on
-  zstyle :omz:plugins:ssh-agent identities shropnet
+  zstyle :omz:plugins:ssh-agent identities id_rsa
   zstyle :omz:plugins:ssh-agent lifetime 8h
 fi
 
