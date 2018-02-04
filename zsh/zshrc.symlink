@@ -60,13 +60,6 @@ export PATH=$HOME/bin:$HOME/.dotfiles/bin:$HOME/.dotfiles/bin/sack:/usr/local/bi
 export EDITOR=vim
 alias mux="tmuxinator"
 
-# Setup ssh-agent.
-if [ "$(uname)" = "Linux" ]; then
-  zstyle :omz:plugins:ssh-agent agent-forwarding on
-  zstyle :omz:plugins:ssh-agent identities shropnet
-  zstyle :omz:plugins:ssh-agent lifetime 8h
-fi
-
 # Add path for Drush.
 export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/.config/composer/vendor/bin:$PATH
