@@ -116,7 +116,6 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew update
   /usr/local/bin/brew tap homebrew/homebrew-php
   /usr/local/bin/brew upgrade
-  /usr/local/bin/brew install ack
   /usr/local/bin/brew install ansible
   /usr/local/bin/brew install clamav
   /usr/local/bin/brew install ctags
@@ -144,7 +143,7 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install wget
 
   # Install Monaco for Powerline font.
-  cp $HOME/.dotfiles/fonts/MonacoforPowerline.otf /Library/Fonts
+  cp ~/.dotfiles/fonts/MonacoforPowerline.otf /Library/Fonts
 
   # Install wuzz.
   go get github.com/asciimoo/wuzz
@@ -153,7 +152,6 @@ fi
 # Install Debian Linux specific apps.
 if [ -f /etc/debian_version ]; then
   sudo apt-get update
-  sudo apt-get -y install ack
   sudo apt-get -y install ansible
   sudo apt-get -y install ctags
   sudo apt-get -y install dos2unix
@@ -178,19 +176,9 @@ if [ -f /etc/debian_version ]; then
   sudo systemctl disable apache2
 fi
 
-# Install sack/sag.
-if [ ! -d "$HOME/.dotfiles/bin/sack" ]; then
-  git clone https://github.com/sampson-chen/sack.git $HOME/.dotfiles/bin/sack
-fi
-
 # Install tmuxinator.
 if ! which tmuxinator >/dev/null; then
   $(which gem) install tmuxinator
-fi
-
-# Install Tmux Plugin Manager.
-if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-  git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 fi
 
 # Install nvm and global node.
@@ -205,7 +193,7 @@ npm install -g eslint-config-airbnb-bundle
 npm install -g @feathersjs/cli
 
 # Install Plug.
-curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Install plugins.
 vim +PlugInstall +qall now

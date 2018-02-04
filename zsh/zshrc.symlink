@@ -54,11 +54,22 @@ plugins=(brew colorize common-aliases compleat git git-extras history jira tmux 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration.
-export PATH=$HOME/bin:$HOME/.dotfiles/bin:$HOME/.dotfiles/bin/sack:/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 # Set tmuxinator env.
 export EDITOR=vim
 alias mux="tmuxinator"
+
+# Setup ssh-agent.
+if [ "$(uname)" = "Linux" ]; then
+  plugins=(ssh-agent)
+  zstyle :omz:plugins:ssh-agent agent-forwarding on
+  zstyle :omz:plugins:ssh-agent identities shropnet
+  zstyle :omz:plugins:ssh-agent lifetime 8h
+fi
+
+# Add path for dotfiles bin folder.
+export PATH=$HOME/.dotfiles/bin:$PATH
 
 # Add path for Drush.
 export PATH=$HOME/.composer/vendor/bin:$PATH
