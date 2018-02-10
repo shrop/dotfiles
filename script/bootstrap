@@ -228,8 +228,11 @@ composer global require drupal/coder
 composer global require drupal/console:@stable
 
 # Install Drush and related drush tools.
-composer global require drush/drush:^8.1
+composer global require drush/drush:^8.1.0
 composer global require pantheon-systems/terminus
+
+# Run Composer global update.
+composer global update
 
 if [ ! -d "$HOME/.drush" ]; then
   mkdir -p $HOME/.drush
