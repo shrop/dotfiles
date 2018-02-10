@@ -100,10 +100,10 @@ alias drushd4d8="docker-compose exec --user 82 php drush --root=/var/www/html/we
 
 # Setup liquidprompt if available.
 if [ -f /usr/local/share/liquidprompt/liquidprompt ]; then
-  . /usr/local/share/liquidprompt
+  . /usr/local/share/liquidprompt/liquidprompt
 fi
-if [ -f /usr/share/liquidprompt/liquidprompt ]; then
-  . /usr/share/liquidprompt/liquidprompt
+if [ -f /usr/share/liquidprompt ]; then
+  . /usr/share/liquidprompt
 fi
 
 # Allowing opening of Sublime Text 3 in tmux sessions
