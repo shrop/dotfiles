@@ -117,6 +117,7 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew tap homebrew/homebrew-php
   /usr/local/bin/brew upgrade
   /usr/local/bin/brew install ansible
+  /usr/local/bin/brew install awscli
   /usr/local/bin/brew install clamav
   /usr/local/bin/brew install ctags
   /usr/local/bin/brew install dos2unix
@@ -208,7 +209,11 @@ vim +PlugInstall +qall now
 
 # Install Composer.
 curl -Ss https://getcomposer.org/installer | php
-sudo mv composer.phar /usr/local/bin/composer
+
+if [ $(uname) == "Darwin" ]; then
+  mv composer.phar /usr/local/bin/composer
+  else sudo mv composer.phar /usr/local/bin/composer
+fi
 
 # Install Composer project dependencies.
 composer global require hirak/prestissimo

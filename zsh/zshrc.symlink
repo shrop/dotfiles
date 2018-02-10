@@ -49,7 +49,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew colorize common-aliases compleat git git-extras history jira ssh-agent tmux tmuxinator)
+plugins=(aws brew colorize common-aliases compleat git git-extras history jira ssh-agent tmux tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
