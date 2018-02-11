@@ -99,8 +99,8 @@ alias drushd4d7="docker-compose exec --user 82 php drush --root=/var/www/html"
 alias drushd4d8="docker-compose exec --user 82 php drush --root=/var/www/html/web"
 
 # Setup liquidprompt if available.
-if [ -f /usr/local/share/liquidprompt ]; then
-  . /usr/local/share/liquidprompt
+if [ -f /usr/local/share/liquidprompt/liquidprompt ]; then
+  . /usr/local/share/liquidprompt/liquidprompt
 fi
 if [ -f /usr/share/liquidprompt/liquidprompt ]; then
   . /usr/share/liquidprompt/liquidprompt
