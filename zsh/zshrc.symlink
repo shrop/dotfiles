@@ -60,6 +60,10 @@ export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export EDITOR=vim
 alias mux="tmuxinator"
 
+# Alias for ag (The Silver Searcher).
+alias ag='\ag --pager="less -XFR"'
+alias sag='\sag --pager="less -XFR"'
+
 # Setup ssh-agent.
 if [ "$(uname)" = "Linux" ]; then
   zstyle :omz:plugins:ssh-agent identities id_rsa
