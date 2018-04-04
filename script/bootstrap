@@ -114,7 +114,6 @@ if [ $(uname) == "Darwin" ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
   /usr/local/bin/brew update
-  /usr/local/bin/brew tap homebrew/homebrew-php
   /usr/local/bin/brew upgrade
   /usr/local/bin/brew install ansible
   /usr/local/bin/brew install awscli
@@ -132,7 +131,6 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install mosh
   /usr/local/bin/brew install nmap
   /usr/local/bin/brew install php71
-  /usr/local/bin/brew install php71-mcrypt
   /usr/local/bin/brew install reattach-to-user-namespace
   /usr/local/bin/brew install redis
   /usr/local/bin/brew install ssh-copy-id

@@ -126,3 +126,7 @@ export GOPATH=$HOME/golang
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
+
+# Brew PHP binary added to paths.
+export PATH="/usr/local/opt/php@7.1/bin:$PATH"
+export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
