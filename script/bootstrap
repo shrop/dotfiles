@@ -130,7 +130,7 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install mariadb
   /usr/local/bin/brew install mosh
   /usr/local/bin/brew install nmap
-  /usr/local/bin/brew install php@71
+  /usr/local/bin/brew install php71
   /usr/local/bin/brew install reattach-to-user-namespace
   /usr/local/bin/brew install redis
   /usr/local/bin/brew install ssh-copy-id
