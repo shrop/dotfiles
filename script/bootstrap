@@ -135,6 +135,7 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install redis
   /usr/local/bin/brew install ssh-copy-id
   /usr/local/bin/brew install the_silver_searcher
+  /usr/local/bin/brew install textql
   /usr/local/bin/brew install tig
   /usr/local/bin/brew install tmux
   /usr/local/bin/brew install tree
