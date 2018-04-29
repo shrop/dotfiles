@@ -199,7 +199,7 @@ export NVM_DIR="$HOME/.nvm"
 nvm install node
 
 # Install npm packags.
-npm install -g netflify-cli
+npm install -g netlify-cli
 npm install -g eslint-config-airbnb-bundle
 npm install -g @feathersjs/cli
 
