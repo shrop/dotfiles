@@ -115,6 +115,7 @@ if [ $(uname) == "Darwin" ]; then
   fi
   /usr/local/bin/brew update
   /usr/local/bin/brew upgrade
+  /usr/local/bin/brew tap netlify/netlifyctl
   /usr/local/bin/brew install ansible
   /usr/local/bin/brew install awscli
   /usr/local/bin/brew install clamav
@@ -129,6 +130,7 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install liquidprompt
   /usr/local/bin/brew install mariadb
   /usr/local/bin/brew install mosh
+  /usr/local/bin/brew install netlifyctl
   /usr/local/bin/brew install nmap
   /usr/local/bin/brew install php71
   /usr/local/bin/brew install reattach-to-user-namespace
@@ -199,7 +201,6 @@ export NVM_DIR="$HOME/.nvm"
 nvm install node
 
 # Install npm packags.
-npm install -g netlify-cli
 npm install -g eslint-config-airbnb-bundle
 npm install -g @feathersjs/cli
 
