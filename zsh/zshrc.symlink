@@ -9,7 +9,7 @@ bashcompinit
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="pygmalion"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -52,6 +52,10 @@ ZSH_THEME="robbyrussell"
 plugins=(aws brew colorize common-aliases compleat git git-extras history jira ssh-agent tmux tmuxinator zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
+
+# Color settings.
+export CLICOLOR=1
+export CLICOLOR_FORCE=1
 
 # User configuration.
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
@@ -101,14 +105,6 @@ alias phpcbf="phpcbf --standard=Drupal --extensions=php,module,inc,install,test,
 # Docker4Drupal Drush aliases for Drupal 7 and Drupal 8.
 alias drushd4d7="docker-compose exec --user 82 php drush --root=/var/www/html"
 alias drushd4d8="docker-compose exec --user 82 php drush --root=/var/www/html/web"
-
-# Setup liquidprompt if available.
-if [ -f /usr/local/share/liquidprompt ]; then
-  . /usr/local/share/liquidprompt
-fi
-if [ -f /usr/share/liquidprompt/liquidprompt ]; then
-  . /usr/share/liquidprompt/liquidprompt
-fi
 
 # Allowing opening of Sublime Text 3 in tmux sessions
 alias subl="reattach-to-user-namespace subl"

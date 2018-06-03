@@ -142,7 +142,6 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install inetutils
   /usr/local/bin/brew install jo
   /usr/local/bin/brew install jsonpp
-  /usr/local/bin/brew install liquidprompt
   /usr/local/bin/brew install mariadb
   /usr/local/bin/brew install mosh
   /usr/local/bin/brew install netlifyctl
@@ -181,7 +180,6 @@ if [ -f /etc/debian_version ]; then
   sudo apt-get -y install dos2unix
   sudo apt-get -y install httpie
   sudo apt-get -y install jo
-  sudo apt-get -y install liquidprompt
   sudo apt-get -y install mariadb-client
   sudo apt-get -y install mosh
   sudo apt-get -y install php
