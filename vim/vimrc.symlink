@@ -15,13 +15,12 @@ Plug 'majutsushi/tagbar'
 Plug 'edkolev/tmuxline.vim'
 Plug 'joonty/vdebug'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'tomasiser/vim-code-dark'
 Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'sickill/vim-monokai'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'tpope/vim-surround'
 Plug 'szw/vim-tags'
@@ -68,7 +67,7 @@ let g:airline_powerline_fonts=1
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 set noshowmode
-let g:airline_theme='base16_monokai'
+let g:airline_theme='codedark'
 
 " vim-php-namespace settings.
 function! IPhpInsertUse()
@@ -94,18 +93,14 @@ set secure
 " Text editing and vim tweaks
 """""""""""""""""""""""""""""""""""""""
 
+colorscheme codedark
 set noswapfile
-colorscheme monokai
 syntax enable
 set number
 set title
 set visualbell
 set backspace=eol,start,indent
 set nowrap
-
-" MacVIM settings.
-set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline
-let macvim_skip_colorschme=1
 
 " Allow project spricifc .vimrc files
 set exrc
