@@ -250,8 +250,10 @@ fi
 drush cc drush
 
 # Install Wodby CLI
-export WODBY_CLI_LATEST_URL=$(curl -s https://api.github.com/repos/wodby/wodby-cli/releases/latest | grep darwin-amd64 | grep browser_download_url | cut -d '"' -f 4)
-wget -qO- "${WODBY_CLI_LATEST_URL}" | tar xz -C /usr/local/bin
+if [ $(uname) == "Darwin" ]; then
+  export WODBY_CLI_LATEST_URL=$(curl -s https://api.github.com/repos/wodby/wodby-cli/releases/latest | grep darwin-amd64 | grep browser_download_url | cut -d '"' -f 4)
+  wget -qO- "${WODBY_CLI_LATEST_URL}" | tar xz -C /usr/local/bin
+fi
 
 echo ''
 echo '  All installed!'
