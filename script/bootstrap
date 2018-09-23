@@ -236,7 +236,7 @@ composer global require hirak/prestissimo \
 drush/drush:^8.1.0 \
 drush/config-extra \
 pantheon-systems/terminus \
-squizlabs/php_codesniffer:^2.8.1 \
+squizlabs/php_codesniffer \
 dealerdirect/phpcodesniffer-composer-installer \
 drupal/coder
 
