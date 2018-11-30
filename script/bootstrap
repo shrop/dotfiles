@@ -216,6 +216,7 @@ nvm install node
 # Install npm packags.
 npm install -g eslint-config-airbnb-bundle
 npm install -g @feathersjs/cli
+npm install -g gatsby-cli
 
 # Install Plug.
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
