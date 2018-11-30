@@ -147,6 +147,7 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install netlifyctl
   /usr/local/bin/brew install nmap
   /usr/local/bin/brew install php71
+  /usr/local/bin/brew install pv
   /usr/local/bin/brew install reattach-to-user-namespace
   /usr/local/bin/brew install redis
   /usr/local/bin/brew install ssh-copy-id
@@ -168,7 +169,7 @@ if [ $(uname) == "Darwin" ]; then
 
   # Install tmuxinator.
   if ! which tmuxinator >/dev/null; then
-    $(which gem) install tmuxinator
+    $(which gem) install tmuxinator --user-install
   fi
 fi
 
@@ -187,6 +188,7 @@ if [ -f /etc/debian_version ]; then
   sudo apt-get -y install php-zip
   sudo apt-get -y install php-simplexml
   sudo apt-get -y install php-mbstring
+  sudo apt-get -y install pv
   sudo apt-get -y install redis-tools
   sudo apt-get -y install ruby
   sudo apt-get -y install silversearcher-ag
