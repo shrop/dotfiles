@@ -113,11 +113,6 @@ if [ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ]; 
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 fi
 
-# Install iTerm2 Night Owl theme.
-if [ ! -d ~/.dotfiles/bin/iterm2-night-owl ]; then
-  git clone git@github.com:nickcernis/iterm2-night-owl.git ~/.dotfiles/bin/iterm2-night-owl
-fi
-
 # Install Sack.
 if [ ! -d ~/.dotfiles/bin/sack ]; then
   git clone https://github.com/sampson-chen/sack.git ~/.dotfiles/bin/sack && cd ~/.dotfiles/bin/sack && chmod +x install_sack.sh && ./install_sack.sh
