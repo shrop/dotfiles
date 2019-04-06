@@ -211,7 +211,9 @@ export NVM_DIR="$HOME/.nvm"
 nvm install node
 
 # Install npm packags.
-npm install -g gatsby-cli
+if [ $(uname) == "Darwin" ]; then
+  npm install -g gatsby-cli
+fi
 
 # Install Plug.
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
