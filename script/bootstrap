@@ -113,6 +113,11 @@ if [ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ]; 
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 fi
 
+# Download gruvbox for iTerm2.
+if [ ! -d ~/bin/gruvbox-dark.itermcolors ]; then
+  cd ~/bin && wget https://raw.githubusercontent.com/morhetz/gruvbox-contrib/master/iterm2/gruvbox-dark.itermcolors
+fi
+
 # Install Sack.
 if [ ! -d ~/.dotfiles/bin/sack ]; then
   git clone https://github.com/sampson-chen/sack.git ~/.dotfiles/bin/sack && cd ~/.dotfiles/bin/sack && chmod +x install_sack.sh && ./install_sack.sh
