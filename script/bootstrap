@@ -130,11 +130,13 @@ if [ $(uname) == "Darwin" ]; then
   fi
   /usr/local/bin/brew update
   /usr/local/bin/brew upgrade
+  /usr/local/bin/brew tap drud/ddev
   /usr/local/bin/brew tap netlify/netlifyctl
   /usr/local/bin/brew install ansible
   /usr/local/bin/brew install awscli
   /usr/local/bin/brew install clamav
   /usr/local/bin/brew install ctags
+  /usr/local/bin/brew install ddev
   /usr/local/bin/brew install dos2unix
   /usr/local/bin/brew install git
   /usr/local/bin/brew install go
