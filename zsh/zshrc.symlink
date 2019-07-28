@@ -131,3 +131,6 @@ export PATH="/usr/local/sbin:$PATH"
 
 # Ruby paths.
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# Flutter path.
+export PATH="$HOME/bin/flutter/bin:$PATH"
