@@ -98,8 +98,8 @@ alias tmux="tmux -2"
 alias kts="tmux kill-server"
 
 # My standard drush coder setup as an alias.
-alias phpcs="phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
-alias phpcbf="phpcbf --standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
+alias phpcs="phpcs --standard=Drupal,DrupalPractice --extensions=php,module,inc,install,test,profile,theme"
+alias phpcbf="phpcbf --standard=Drupal,DrupalPractice --extensions=php,module,inc,install,test,profile,theme"
 
 # Docker4Drupal Drush aliases for Drupal 7 and Drupal 8.
 alias drushd4d7="docker-compose exec --user 82 php drush --root=/var/www/html"
