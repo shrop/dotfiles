@@ -281,3 +281,6 @@ sack
 
 # Netlify
 netlify.toml
+
+# DDEV
+.ddev
