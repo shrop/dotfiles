@@ -150,7 +150,7 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install wget
 
   # Install Monaco for Powerline font.
-  cp ~/.dotfiles/fonts/MonacoforPowerline.otf /Library/Fonts
+  cp ~/.dotfiles/fonts/MonacoforPowerline.otf /Library/Fonts/
 
   # Install wuzz.
   go get github.com/asciimoo/wuzz
