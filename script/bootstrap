@@ -262,6 +262,11 @@ drupal/coder
 # Run Composer global update.
 composer global update
 
+# Install Drupal Check
+curl -O -L https://github.com/mglaman/drupal-check/releases/latest/download/drupal-check.phar
+mv drupal-check.phar $HOME/bin/drupal-check
+chmod +x $HOME/bin/drupal-check
+
 if [ ! -d "$HOME/.drush" ]; then
   mkdir -p $HOME/.drush
 fi
