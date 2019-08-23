@@ -193,9 +193,6 @@ if [ -f /etc/debian_version ]; then
   fi
 fi
 
-# Read .zshrc to make sure we have paths set after installs.
-source ~/.zshrc
-
 # Install zsh syntax highlighting.
 if [ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ]; then
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -226,9 +223,6 @@ if [ $(uname) == "Darwin" ]; then
   npm install -g gatsby-cli
   npm install -g firebase-tools
 fi
-
-# Read .zshrc to make sure we have paths set after installs.
-source ~/.zshrc
 
 # Disable gatsby telemetry.
 gatsby telemetry --disable
