@@ -49,6 +49,14 @@ docker-compose*.yml
 
 
 #########################
+# Firebase              #
+#########################
+
+GoogleService-Info.plist
+google-services.json
+
+
+#########################
 # JetBrains             #
 #########################
 
