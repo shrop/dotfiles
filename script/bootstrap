@@ -122,6 +122,7 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install ansible
   /usr/local/bin/brew install awscli
   /usr/local/bin/brew install clamav
+  /usr/local/bin/brew install cocoapods
   /usr/local/bin/brew install ctags
   /usr/local/bin/brew install dart
   /usr/local/bin/brew install ddev
