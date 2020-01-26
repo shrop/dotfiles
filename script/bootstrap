@@ -137,7 +137,7 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install mosh
   /usr/local/bin/brew install netlifyctl
   /usr/local/bin/brew install nmap
-  /usr/local/bin/brew install php72
+  /usr/local/bin/brew install php@7.3
   /usr/local/bin/brew install pv
   /usr/local/bin/brew install reattach-to-user-namespace
   /usr/local/bin/brew install redis
@@ -250,7 +250,6 @@ fi
 
 # Install Composer project dependencies.
 composer global require hirak/prestissimo \
-drush/drush:^8.1.0 \
 drush/config-extra \
 pantheon-systems/terminus \
 squizlabs/php_codesniffer \
@@ -260,16 +259,24 @@ drupal/coder
 # Run Composer global update.
 composer global update
 
+# Install Drush.
+if [ $(uname) == "Darwin" ]
+  then
+    curl -OL https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar
+    chmod +x drush.phar
+    mv drush.phar /usr/local/bin/drush
+  else
+    wget -O drush.phar https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar
+    chmod +x drush.phar
+    sudo mv composer.phar /usr/local/bin/composer
+fi
+
+drush self-update
+
 # Install Drupal Check
 curl -O -L https://github.com/mglaman/drupal-check/releases/latest/download/drupal-check.phar
 mv drupal-check.phar $HOME/bin/drupal-check
 chmod +x $HOME/bin/drupal-check
-
-if [ ! -d "$HOME/.drush" ]; then
-  mkdir -p $HOME/.drush
-fi
-
-drush cc drush
 
 # Install Wodby CLI
 if [ $(uname) == "Darwin" ]; then
