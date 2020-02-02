@@ -111,7 +111,7 @@ install_dotfiles
 
 # Install homebrew and OS X specific apps.
 if [ $(uname) == "Darwin" ]; then
-  if ! which brew >/dev/null; then
+  if ! which brew > /dev/null; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
   /usr/local/bin/brew update
@@ -159,7 +159,7 @@ if [ $(uname) == "Darwin" ]; then
   go get github.com/asciimoo/wuzz
 
   # Install tmuxinator.
-  if ! which tmuxinator >/dev/null; then
+  if ! which tmuxinator > /dev/null; then
     $(which gem) install tmuxinator --user-install
   fi
 fi
@@ -191,7 +191,7 @@ if [ -f /etc/debian_version ]; then
   sudo systemctl disable apache2
 
   # Install tmuxinator.
-  if ! which tmuxinator >/dev/null; then
+  if ! which tmuxinator > /dev/null; then
     sudo $(which gem) install tmuxinator
   fi
 fi
@@ -282,6 +282,11 @@ chmod +x $HOME/bin/drupal-check
 if [ $(uname) == "Darwin" ]; then
   export WODBY_CLI_LATEST_URL=$(curl -s https://api.github.com/repos/wodby/wodby-cli/releases/latest | grep darwin-amd64 | grep browser_download_url | cut -d '"' -f 4)
   wget -qO- "${WODBY_CLI_LATEST_URL}" | tar xz -C /usr/local/bin
+fi
+
+# Update Flutter.
+if which flutter > /dev/null; then
+  flutter upgrade
 fi
 
 echo ''
