@@ -254,7 +254,8 @@ drush/config-extra \
 pantheon-systems/terminus \
 squizlabs/php_codesniffer \
 dealerdirect/phpcodesniffer-composer-installer \
-drupal/coder
+drupal/coder \
+mglaman/drupal-check
 
 # Run Composer global update.
 composer global update
@@ -272,11 +273,6 @@ if [ $(uname) == "Darwin" ]
 fi
 
 drush self-update
-
-# Install Drupal Check
-curl -O -L https://github.com/mglaman/drupal-check/releases/latest/download/drupal-check.phar
-mv drupal-check.phar $HOME/bin/drupal-check
-chmod +x $HOME/bin/drupal-check
 
 # Install Wodby CLI
 if [ $(uname) == "Darwin" ]; then
