@@ -128,6 +128,7 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install ddev
   /usr/local/bin/brew install deno
   /usr/local/bin/brew install dos2unix
+  /usr/local/bin/brew install fzf
   /usr/local/bin/brew install git
   /usr/local/bin/brew install go
   /usr/local/bin/brew install httpie
