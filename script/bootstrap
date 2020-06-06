@@ -126,6 +126,7 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install ctags
   /usr/local/bin/brew install dart
   /usr/local/bin/brew install ddev
+  /usr/local/bin/brew install deno
   /usr/local/bin/brew install dos2unix
   /usr/local/bin/brew install git
   /usr/local/bin/brew install go
@@ -194,6 +195,9 @@ if [ -f /etc/debian_version ]; then
   if ! which tmuxinator > /dev/null; then
     sudo $(which gem) install tmuxinator
   fi
+
+  # Install Deno.
+  curl -fsSL https://deno.land/x/install/install.sh | sh
 fi
 
 # Install zsh syntax highlighting.
