@@ -230,6 +230,7 @@ if [ $(uname) == "Darwin" ]; then
   npm install -g gatsby-cli
   npm install -g firebase-tools
   npm install -g lighthouse
+  npm install -g yarn
 fi
 
 # Disable gatsby telemetry.
