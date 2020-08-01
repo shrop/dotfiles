@@ -192,9 +192,6 @@ if [ -f /etc/debian_version ]; then
 
   # Stop Apache from starting on boot.
   sudo systemctl disable apache2
-
-  # Install Deno.
-  curl -fsSL https://deno.land/x/install/install.sh | sh
 fi
 
 # Install zsh syntax highlighting.
