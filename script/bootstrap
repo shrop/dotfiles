@@ -154,6 +154,11 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install watchman
   /usr/local/bin/brew install wget
 
+  # Download gruvbox for iTerm2.
+  if [ ! -f ~/bin/gruvbox-dark.itermcolors ]; then
+    cd ~/bin && wget https://raw.githubusercontent.com/morhetz/gruvbox-contrib/master/iterm2/gruvbox-dark.itermcolors
+  fi
+
   # Install Monaco for Powerline font.
   cp ~/.dotfiles/fonts/MonacoforPowerline.otf /Library/Fonts/
 
@@ -179,29 +184,25 @@ if [ -f /etc/debian_version ]; then
   sudo apt-get -y install php
   sudo apt-get -y install php-curl
   sudo apt-get -y install php-zip
-  sudo apt-get -y install php-simplexml
+  sudo apt-get -y install php-xml
   sudo apt-get -y install php-mbstring
   sudo apt-get -y install pv
   sudo apt-get -y install redis-tools
   sudo apt-get -y install ruby
   sudo apt-get -y install silversearcher-ag
   sudo apt-get -y install tig
-  sudo apt-get -t stretch-backports -y install tmux
+  sudo apt-get -y install tmux
   sudo apt-get -y install tree
   sudo apt-get -y install tmuxinator
+fi
 
-  # Stop Apache from starting on boot.
-  sudo systemctl disable apache2
+if `cat /proc/cpuinfo | grep -q "Raspberry Pi"`; then
+  sudo apt-get -y install vim-nox
 fi
 
 # Install zsh syntax highlighting.
 if [ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ]; then
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-fi
-
-# Download gruvbox for iTerm2.
-if [ ! -f ~/bin/gruvbox-dark.itermcolors ]; then
-  cd ~/bin && wget https://raw.githubusercontent.com/morhetz/gruvbox-contrib/master/iterm2/gruvbox-dark.itermcolors
 fi
 
 # Install Sack.
@@ -261,16 +262,14 @@ composer global update
 # Install Drush.
 if [ $(uname) == "Darwin" ]
   then
-    curl -OL https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar
+    curl -OL https://github.com/drush-ops/drush-launcher/releases/latest/download/drush.phar
     chmod +x drush.phar
     mv drush.phar /usr/local/bin/drush
   else
-    wget -O drush.phar https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar
+    wget -O drush.phar https://github.com/drush-ops/drush-launcher/releases/latest/download/drush.phar
     chmod +x drush.phar
-    sudo mv composer.phar /usr/local/bin/composer
+    sudo mv drush.phar /usr/local/bin/drush
 fi
-
-drush self-update
 
 # Install Wodby CLI
 if [ $(uname) == "Darwin" ]; then

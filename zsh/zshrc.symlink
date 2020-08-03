@@ -73,6 +73,9 @@ alias mux="tmuxinator"
 alias ag='\ag --pager="less -XFR"'
 alias sag='\sag --pager="less -XFR"'
 
+# Alias for Raspberry Pi measuretemp
+alias temp="/opt/vc/bin/vcgencmd measure_temp"
+
 # Add path for dotfiles bin folder.
 export PATH=$HOME/.dotfiles/bin:$PATH
 
