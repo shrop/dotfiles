@@ -116,8 +116,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Fix for drush aliases with Acquia Dev Desktop
-export DEVDESKTOP_DRUPAL_SETTINGS_DIR="$HOME/.acquia/DevDesktop/DrupalSettings"
+# Yarn paths.
+export PATH="$HOME/.yarn/bin:$PATH"
 
 # Go lang paths.
 export GOPATH=$HOME/golang
