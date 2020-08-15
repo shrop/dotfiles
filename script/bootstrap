@@ -271,11 +271,13 @@ if [ $(uname) == "Darwin" ]
     sudo mv drush.phar /usr/local/bin/drush
 fi
 
+# Install Google Cloud SDK
+curl https://sdk.cloud.google.com > install.sh
+bash install.sh --disable-prompts --install-dir=$HOME/bin
+
 # Install Wodby CLI
-if [ $(uname) == "Darwin" ]; then
-  export WODBY_CLI_LATEST_URL=$(curl -s https://api.github.com/repos/wodby/wodby-cli/releases/latest | grep darwin-amd64 | grep browser_download_url | cut -d '"' -f 4)
-  wget -qO- "${WODBY_CLI_LATEST_URL}" | tar xz -C /usr/local/bin
-fi
+export WODBY_CLI_LATEST_URL=$(curl -s https://api.github.com/repos/wodby/wodby-cli/releases/latest | grep darwin-amd64 | grep browser_download_url | cut -d '"' -f 4)
+wget -qO- "${WODBY_CLI_LATEST_URL}" | tar xz -C /usr/local/bin
 
 echo ''
 echo '  All installed!'
