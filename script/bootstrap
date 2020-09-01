@@ -278,6 +278,7 @@ if [ $(uname) == "Darwin" ]
 fi
 
 # Install Google Cloud SDK
+rm -rf $HOME/bin/google-cloud-sdk
 curl https://sdk.cloud.google.com > install.sh
 bash install.sh --disable-prompts --install-dir=$HOME/bin
 rm -f install.sh
