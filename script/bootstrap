@@ -280,7 +280,7 @@ fi
 # Install Google Cloud SDK
 curl https://sdk.cloud.google.com > install.sh
 bash install.sh --disable-prompts --install-dir=$HOME/bin
-rm install.sh
+rm -f install.sh
 
 # Install Wodby CLI
 export WODBY_CLI_LATEST_URL=$(curl -s https://api.github.com/repos/wodby/wodby-cli/releases/latest | grep darwin-amd64 | grep browser_download_url | cut -d '"' -f 4)
