@@ -108,7 +108,7 @@ install_dotfiles () {
 setup_gitconfig
 install_dotfiles
 
-# Install homebrew and OS X specific apps.
+# Install homebrew and macOS specific apps.
 if [ $(uname) == "Darwin" ]; then
   if ! which brew > /dev/null; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -159,8 +159,8 @@ if [ $(uname) == "Darwin" ]; then
     cd ~/bin && wget https://raw.githubusercontent.com/morhetz/gruvbox-contrib/master/iterm2/gruvbox-dark.itermcolors
   fi
 
-  # Install Monaco for Powerline font.
-  cp ~/.dotfiles/fonts/MonacoforPowerline.otf /Library/Fonts/
+  # Install Meslo LG M Regular for Powerline for Powerline font.
+  cp ~/.dotfiles/fonts/'Meslo LG M Regular for Powerline.ttf' /Library/Fonts/
 
   # Install wuzz.
   go get github.com/asciimoo/wuzz
@@ -194,15 +194,21 @@ if [ -f /etc/debian_version ]; then
   sudo apt-get -y install tmux
   sudo apt-get -y install tree
   sudo apt-get -y install tmuxinator
+
+  if `cat /proc/cpuinfo | grep -q "Raspberry Pi"`; then
+    sudo apt-get -y install vim-nox
+  fi
 fi
 
-if `cat /proc/cpuinfo | grep -q "Raspberry Pi"`; then
-  sudo apt-get -y install vim-nox
+# Install spaceship-prompt theme.
+if [ ! -d $HOME/.oh-my-zsh/custom/themes/spaceship-prompt ]; then
+  git clone https://github.com/denysdovhan/spaceship-prompt.git $HOME/.oh-my-zsh/custom/themes/spaceship-prompt
+  ln -s $HOME/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme $HOME/.oh-my-zsh/themes/spaceship.zsh-theme
 fi
 
 # Install zsh syntax highlighting.
-if [ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ]; then
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+if [ ! -d $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 fi
 
 # Install Sack.
