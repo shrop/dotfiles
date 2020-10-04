@@ -130,9 +130,11 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install fzf
   /usr/local/bin/brew install git
   /usr/local/bin/brew install go
+  /usr/local/bin/brew install htop
   /usr/local/bin/brew install httpie
   /usr/local/bin/brew install inetutils
   /usr/local/bin/brew install jo
+  /usr/local/bin/brew install jq
   /usr/local/bin/brew install jsonpp
   /usr/local/bin/brew install mariadb
   /usr/local/bin/brew install mosh
@@ -177,8 +179,10 @@ if [ -f /etc/debian_version ]; then
   sudo apt-get -y install ansible
   sudo apt-get -y install ctags
   sudo apt-get -y install dos2unix
+  sudo apt-get -y install htop
   sudo apt-get -y install httpie
   sudo apt-get -y install jo
+  sudo apt-get -y install jq
   sudo apt-get -y install mariadb-client
   sudo apt-get -y install mosh
   sudo apt-get -y install php
