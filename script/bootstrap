@@ -258,8 +258,7 @@ if [ $(uname) == "Darwin" ]; then
 fi
 
 # Install Composer project dependencies.
-composer global require hirak/prestissimo \
-drush/config-extra \
+composer require drush/config-extra \
 pantheon-systems/terminus \
 squizlabs/php_codesniffer \
 dealerdirect/phpcodesniffer-composer-installer \
