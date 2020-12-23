@@ -230,6 +230,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 nvm install 14
 nvm alias default 14
+npm install -g npm
 
 # Install npm packags.
 npm install -g gatsby-cli
