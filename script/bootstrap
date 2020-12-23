@@ -231,6 +231,7 @@ export NVM_DIR="$HOME/.nvm"
 nvm install 14
 nvm alias default 14
 npm install -g npm
+npm update -g
 
 # Install npm packags.
 npm install -g gatsby-cli
