@@ -283,14 +283,12 @@ if [ $(uname) == "Darwin" ]
 fi
 
 # Install Google Cloud SDK
-rm -rf $HOME/bin/google-cloud-sdk
-curl https://sdk.cloud.google.com > install.sh
-bash install.sh --disable-prompts --install-dir=$HOME/bin
-rm -f install.sh
-
-# Install Wodby CLI
-export WODBY_CLI_LATEST_URL=$(curl -s https://api.github.com/repos/wodby/wodby-cli/releases/latest | grep darwin-amd64 | grep browser_download_url | cut -d '"' -f 4)
-wget -qO- "${WODBY_CLI_LATEST_URL}" | tar xz -C /usr/local/bin
+if ! `cat /proc/cpuinfo | grep -qv "Raspberry Pi"`; then
+  rm -rf $HOME/bin/google-cloud-sdk
+  curl https://sdk.cloud.google.com > install.sh
+  bash install.sh --disable-prompts --install-dir=$HOME/bin
+  rm -f install.sh
+fi
 
 echo ''
 echo '  All installed!'
