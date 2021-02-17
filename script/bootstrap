@@ -140,7 +140,7 @@ if [ $(uname) == "Darwin" ]; then
   /usr/local/bin/brew install mosh
   /usr/local/bin/brew install netlifyctl
   /usr/local/bin/brew install nmap
-  /usr/local/bin/brew install php@7.3
+  /usr/local/bin/brew install php@7.4
   /usr/local/bin/brew install pv
   /usr/local/bin/brew install reattach-to-user-namespace
   /usr/local/bin/brew install redis
@@ -271,13 +271,14 @@ mglaman/drupal-check
 composer global update
 
 # Install Drush.
+# https://docs.drush.org/en/8.x/install/.
 if [ $(uname) == "Darwin" ]
   then
-    curl -OL https://github.com/drush-ops/drush-launcher/releases/latest/download/drush.phar
+    curl -OL https://github.com/drush-ops/drush/releases/download/8.4.6/drush.phar
     chmod +x drush.phar
     mv drush.phar /usr/local/bin/drush
   else
-    wget -O drush.phar https://github.com/drush-ops/drush-launcher/releases/latest/download/drush.phar
+    wget -O drush.phar https://github.com/drush-ops/drush/releases/download/8.4.6/drush.phar
     chmod +x drush.phar
     sudo mv drush.phar /usr/local/bin/drush
 fi
