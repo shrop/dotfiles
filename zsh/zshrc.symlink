@@ -79,9 +79,6 @@ alias temp="/opt/vc/bin/vcgencmd measure_temp"
 # Add path for dotfiles bin folder.
 export PATH=$HOME/.dotfiles/bin:$PATH
 
-# Add path for Drush.
-export DRUSH_LAUNCHER_FALLBACK=/usr/local/bin/drush
-
 # Add paths for Composer.
 export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/.config/composer/vendor/bin:$PATH
