@@ -108,7 +108,7 @@ install_dotfiles () {
 setup_gitconfig
 install_dotfiles
 
-# Install homebrew and macOS specific apps.
+# Install Homebrew and macOS specific apps.
 if [ $(uname) == "Darwin" ]; then
   if ! which brew > /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
