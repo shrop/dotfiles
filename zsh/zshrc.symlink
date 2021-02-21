@@ -111,6 +111,9 @@ alias drushd4d8="docker-compose exec --user 82 php drush --root=/var/www/html/we
 # Allowing opening of Sublime Text 3 in tmux sessions
 alias subl="reattach-to-user-namespace subl"
 
+# Aliases for DDEV and Docker.
+alias ddev-rm-f=‘ddev rm --remove-data --omit-snapshot’
+
 # Load nvm.
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
