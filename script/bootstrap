@@ -108,53 +108,113 @@ install_dotfiles () {
 setup_gitconfig
 install_dotfiles
 
-# Install Homebrew and macOS specific apps.
-if [ $(uname) == "Darwin" ]; then
+# Create ~/bin if it doesn't exist.
+if [ ! -f ~/bash_completion ]; then
+  mkdir -p ~/bin
+fi
+
+# Install Homebrew and macOS specific apps for Apple Silicon Macs.
+if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   if ! which brew > /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
-  /usr/local/bin/brew update
-  /usr/local/bin/brew upgrade
-  /usr/local/bin/brew tap drud/ddev
-  /usr/local/bin/brew tap netlify/netlifyctl
-  /usr/local/bin/brew tap dart-lang/dart
-  /usr/local/bin/brew install ansible
-  /usr/local/bin/brew install awscli
-  /usr/local/bin/brew install clamav
-  /usr/local/bin/brew install cocoapods
-  /usr/local/bin/brew install ctags
-  /usr/local/bin/brew install dart
-  /usr/local/bin/brew install ddev
-  /usr/local/bin/brew install deno
-  /usr/local/bin/brew install dos2unix
-  /usr/local/bin/brew install fzf
-  /usr/local/bin/brew install git
-  /usr/local/bin/brew install go
-  /usr/local/bin/brew install htop
-  /usr/local/bin/brew install httpie
-  /usr/local/bin/brew install inetutils
-  /usr/local/bin/brew install jo
-  /usr/local/bin/brew install jq
-  /usr/local/bin/brew install jsonpp
-  /usr/local/bin/brew install mariadb
-  /usr/local/bin/brew install mosh
-  /usr/local/bin/brew install netlifyctl
-  /usr/local/bin/brew install nmap
-  /usr/local/bin/brew install php@7.4
-  /usr/local/bin/brew install pv
-  /usr/local/bin/brew install reattach-to-user-namespace
-  /usr/local/bin/brew install redis
-  /usr/local/bin/brew install ssh-copy-id
-  /usr/local/bin/brew install the_silver_searcher
-  /usr/local/bin/brew install textql
-  /usr/local/bin/brew install tig
-  /usr/local/bin/brew install tmux
-  /usr/local/bin/brew install tmuxinator
-  /usr/local/bin/brew install tree
-  /usr/local/bin/brew install vim
-  /usr/local/bin/brew install watch
-  /usr/local/bin/brew install watchman
-  /usr/local/bin/brew install wget
+  $which brew update
+  $which brew upgrade
+  $which brew tap drud/ddev
+  $which brew tap netlify/netlifyctl
+  $which brew tap dart-lang/dart
+  $which brew install ansible
+  $which brew install awscli
+  $which brew install clamav
+  $which brew install cocoapods
+  $which brew install ctags
+  $which brew install dart
+  $which brew install drud/ddev-edge/ddev
+  $which brew install deno
+  $which brew install dos2unix
+  $which brew install fzf
+  $which brew install git
+  $which brew install go
+  $which brew install htop
+  $which brew install httpie
+  $which brew install inetutils
+  $which brew install jo
+  $which brew install jq
+  $which brew install mariadb
+  $which brew install mosh
+  $which brew install netlifyctl
+  $which brew install nmap
+  $which brew install php@7.4
+  $which brew install pv
+  $which brew install reattach-to-user-namespace
+  $which brew install redis
+  $which brew install ssh-copy-id
+  $which brew install the_silver_searcher
+  $which brew install tig
+  $which brew install tmux
+  $which brew install tmuxinator
+  $which brew install tree
+  $which brew install vim
+  $which brew install watch
+  $which brew install watchman
+  $which brew install wget
+
+  # Download gruvbox for iTerm2.
+  if [ ! -f ~/bin/gruvbox-dark.itermcolors ]; then
+    cd ~/bin && wget https://raw.githubusercontent.com/morhetz/gruvbox-contrib/master/iterm2/gruvbox-dark.itermcolors
+  fi
+
+  # Install Meslo LG M Regular for Powerline for Powerline font.
+  cp ~/.dotfiles/fonts/'Meslo LG M Regular for Powerline.ttf' /Library/Fonts/
+fi
+
+# Install Homebrew and macOS specific apps for Intel Macs.
+if [ $(uname) == "Darwin" ] && [ $(uname -p) == "i386" ]; then
+  if ! which brew > /dev/null; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi
+  $which brew update
+  $which brew upgrade
+  $which brew tap drud/ddev
+  $which brew tap netlify/netlifyctl
+  $which brew tap dart-lang/dart
+  $which brew install ansible
+  $which brew install awscli
+  $which brew install clamav
+  $which brew install cocoapods
+  $which brew install ctags
+  $which brew install dart
+  $which brew install ddev
+  $which brew install deno
+  $which brew install dos2unix
+  $which brew install fzf
+  $which brew install git
+  $which brew install go
+  $which brew install htop
+  $which brew install httpie
+  $which brew install inetutils
+  $which brew install jo
+  $which brew install jq
+  $which brew install jsonpp
+  $which brew install mariadb
+  $which brew install mosh
+  $which brew install netlifyctl
+  $which brew install nmap
+  $which brew install php@7.4
+  $which brew install pv
+  $which brew install reattach-to-user-namespace
+  $which brew install redis
+  $which brew install ssh-copy-id
+  $which brew install the_silver_searcher
+  $which brew install textql
+  $which brew install tig
+  $which brew install tmux
+  $which brew install tmuxinator
+  $which brew install tree
+  $which brew install vim
+  $which brew install watch
+  $which brew install watchman
+  $which brew install wget
 
   # Download gruvbox for iTerm2.
   if [ ! -f ~/bin/gruvbox-dark.itermcolors ]; then
@@ -215,33 +275,6 @@ if [ ! -d $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 fi
 
-# Install Sack.
-if [ ! -d ~/.dotfiles/bin/sack ]; then
-  git clone https://github.com/sampson-chen/sack.git ~/.dotfiles/bin/sack && cd ~/.dotfiles/bin/sack && chmod +x install_sack.sh && ./install_sack.sh
-fi
-
-# Install nvm and global node.
-if [ ! -d "$HOME/.nvm" ]; then
-  mkdir -p $HOME/.nvm
-fi
-curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-nvm install 14
-nvm alias default 14
-npm install -g npm
-npm update -g
-
-# Install npm packags.
-npm install -g gatsby-cli
-npm install -g firebase-tools
-npm install -g lighthouse
-npm install -g yarn
-
-# Disable gatsby telemetry.
-gatsby telemetry --disable
-
 # Install Plug.
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -251,44 +284,74 @@ vim +PlugInstall +qall
 # Update Plug and plugins.
 vim +PlugUpgrade +PlugUpdate +qall
 
-# Install Composer.
-curl -Ss https://getcomposer.org/installer | php
+if [ ! $(uname -p) == "arm" ]; then
 
-if [ $(uname) == "Darwin" ]; then
-  mv composer.phar /usr/local/bin/composer
-  else sudo mv composer.phar /usr/local/bin/composer
-fi
+  # Install Sack.
+  if [ ! -d ~/.dotfiles/bin/sack ]; then
+    git clone https://github.com/sampson-chen/sack.git ~/.dotfiles/bin/sack && cd ~/.dotfiles/bin/sack && chmod +x install_sack.sh && ./install_sack.sh
+  fi
 
-# Install Composer project dependencies.
-composer global require drush/config-extra \
-pantheon-systems/terminus \
-squizlabs/php_codesniffer \
-dealerdirect/phpcodesniffer-composer-installer \
-drupal/coder \
-mglaman/drupal-check
+  # Install nvm and global node.
+  if [ ! -d "$HOME/.nvm" ]; then
+    mkdir -p $HOME/.nvm
+  fi
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  nvm install 14
+  nvm alias default 14
+  npm install -g npm
+  npm update -g
 
-# Run Composer global update.
-composer global update
+  # Install npm packags.
+  npm install -g gatsby-cli
+  npm install -g firebase-tools
+  npm install -g lighthouse
+  npm install -g yarn
 
-# Install Drush.
-# https://docs.drush.org/en/8.x/install/.
-if [ $(uname) == "Darwin" ]
-  then
-    curl -OL https://github.com/drush-ops/drush/releases/download/8.4.6/drush.phar
-    chmod +x drush.phar
-    mv drush.phar /usr/local/bin/drush
-  else
-    wget -O drush.phar https://github.com/drush-ops/drush/releases/download/8.4.6/drush.phar
-    chmod +x drush.phar
-    sudo mv drush.phar /usr/local/bin/drush
-fi
+  # Disable gatsby telemetry.
+  gatsby telemetry --disable
 
-# Install Google Cloud SDK
-if ! `cat /proc/cpuinfo | grep -qv "Raspberry Pi"`; then
-  rm -rf $HOME/bin/google-cloud-sdk
-  curl https://sdk.cloud.google.com > install.sh
-  bash install.sh --disable-prompts --install-dir=$HOME/bin
-  rm -f install.sh
+  # Install Composer.
+  curl -Ss https://getcomposer.org/installer | php
+
+  if [ $(uname) == "Darwin" ]; then
+    mv composer.phar /usr/local/bin/composer
+    else sudo mv composer.phar /usr/local/bin/composer
+  fi
+
+  # Install Composer project dependencies.
+  composer global require drush/config-extra \
+  pantheon-systems/terminus \
+  squizlabs/php_codesniffer \
+  dealerdirect/phpcodesniffer-composer-installer \
+  drupal/coder \
+  mglaman/drupal-check
+
+  # Run Composer global update.
+  composer global update
+
+  # Install Drush.
+  # https://docs.drush.org/en/8.x/install/.
+  if [ $(uname) == "Darwin" ]
+    then
+      curl -OL https://github.com/drush-ops/drush/releases/download/8.4.6/drush.phar
+      chmod +x drush.phar
+      mv drush.phar /usr/local/bin/drush
+    else
+      wget -O drush.phar https://github.com/drush-ops/drush/releases/download/8.4.6/drush.phar
+      chmod +x drush.phar
+      sudo mv drush.phar /usr/local/bin/drush
+  fi
+
+  # Install Google Cloud SDK
+  if ! `cat /proc/cpuinfo | grep -qv "Raspberry Pi"`; then
+    rm -rf $HOME/bin/google-cloud-sdk
+    curl https://sdk.cloud.google.com > install.sh
+    bash install.sh --disable-prompts --install-dir=$HOME/bin
+    rm -f install.sh
+  fi
 fi
 
 echo ''
