@@ -120,7 +120,6 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   fi
   $which brew update
   $which brew upgrade
-  $which brew tap drud/ddev
   $which brew tap netlify/netlifyctl
   $which brew tap dart-lang/dart
   $which brew install ansible
@@ -129,7 +128,6 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install cocoapods
   $which brew install ctags
   $which brew install dart
-  $which brew install drud/ddev-edge/ddev
   $which brew install deno
   $which brew install dos2unix
   $which brew install fzf
@@ -158,6 +156,12 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install watch
   $which brew install watchman
   $which brew install wget
+
+  # Install DDEV.
+  $which wget https://raw.githubusercontent.com/drud/ddev/master/scripts/install_ddev.sh
+  chmod +x install_ddev.sh
+  ./install_ddev.sh v1.17.0-alpha6
+  rm ./install_ddev.sh
 
   # Download gruvbox for iTerm2.
   if [ ! -f ~/bin/gruvbox-dark.itermcolors ]; then
