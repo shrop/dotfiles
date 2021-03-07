@@ -313,6 +313,7 @@ if [ ! $(uname -p) == "arm" ]; then
   npm install -g firebase-tools
   npm install -g lighthouse
   npm install -g yarn
+  npm install -g alfred-vpnutil
 
   # Disable gatsby telemetry.
   gatsby telemetry --disable
