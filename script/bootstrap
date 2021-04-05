@@ -160,16 +160,13 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   # Install DDEV.
   $which wget https://raw.githubusercontent.com/drud/ddev/master/scripts/install_ddev.sh
   chmod +x install_ddev.sh
-  ./install_ddev.sh v1.17.0-alpha6
+  ./install_ddev.sh v1.17.0-rc2
   rm ./install_ddev.sh
 
-  # Download gruvbox for iTerm2.
-  if [ ! -f ~/bin/gruvbox-dark.itermcolors ]; then
-    cd ~/bin && wget https://raw.githubusercontent.com/morhetz/gruvbox-contrib/master/iterm2/gruvbox-dark.itermcolors
+  # Download iTerm2 theme.
+  if [ ! -f ~/bin/xcodedark.itermcolors ]; then
+    cd ~/bin && wget https://raw.githubusercontent.com/arzg/vim-colors-xcode/master/xcodedark.itermcolors
   fi
-
-  # Install Meslo LG M Regular for Powerline for Powerline font.
-  cp ~/.dotfiles/fonts/'Meslo LG M Regular for Powerline.ttf' /Library/Fonts/
 fi
 
 # Install Homebrew and macOS specific apps for Intel Macs.
@@ -220,13 +217,10 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "i386" ]; then
   $which brew install watchman
   $which brew install wget
 
-  # Download gruvbox for iTerm2.
-  if [ ! -f ~/bin/gruvbox-dark.itermcolors ]; then
-    cd ~/bin && wget https://raw.githubusercontent.com/morhetz/gruvbox-contrib/master/iterm2/gruvbox-dark.itermcolors
+  # Download iTerm2 theme.
+  if [ ! -f ~/bin/xcodedark.itermcolors ]; then
+    cd ~/bin && wget https://raw.githubusercontent.com/arzg/vim-colors-xcode/master/xcodedark.itermcolors
   fi
-
-  # Install Meslo LG M Regular for Powerline for Powerline font.
-  cp ~/.dotfiles/fonts/'Meslo LG M Regular for Powerline.ttf' /Library/Fonts/
 
   # Install wuzz.
   go get github.com/asciimoo/wuzz

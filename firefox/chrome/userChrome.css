@@ -1,8 +1,0 @@
-/* hides the native tabs */
-#TabsToolbar {
-  visibility: collapse;
-}
-
-#sidebar-header {
-  visibility: collapse !important;
-}

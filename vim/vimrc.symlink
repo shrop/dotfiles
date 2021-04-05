@@ -24,7 +24,7 @@ Plug 'mxw/vim-jsx'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'tpope/vim-surround'
 Plug 'szw/vim-tags'
-Plug 'morhetz/gruvbox'
+Plug 'arzg/vim-colors-xcode'
 Plug 'https://git.drupalcode.org/project/vimrc.git', {'branch': '8.x-1.x', 'rtp': 'bundle/vim-plugin-for-drupal/'}
 call plug#end()
 
@@ -68,7 +68,7 @@ let g:airline_powerline_fonts=1
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 set noshowmode
-let g:airline_theme='gruvbox'
+let g:airline_theme='xcodedark'
 
 " vim-php-namespace settings.
 function! IPhpInsertUse()
@@ -94,9 +94,9 @@ set secure
 " Text editing and vim tweaks
 """""""""""""""""""""""""""""""""""""""
 
-let g:gruvbox_italic=1
+set termguicolors
 set background=dark
-colorscheme gruvbox
+colorscheme xcodedark
 set noswapfile
 syntax enable
 set number

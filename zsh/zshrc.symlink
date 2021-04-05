@@ -62,9 +62,6 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-# Color settings.
-source "$HOME/.dotfiles/vim/vim.symlink/plugged/gruvbox/gruvbox_256palette.sh"
-
 # Set tmuxinator env.
 export EDITOR=vim
 alias mux="tmuxinator"
