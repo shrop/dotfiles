@@ -282,68 +282,56 @@ vim +PlugInstall +qall
 # Update Plug and plugins.
 vim +PlugUpgrade +PlugUpdate +qall
 
+# Install Sack.
+if [ ! -d ~/.dotfiles/bin/sack ]; then
+  git clone https://github.com/sampson-chen/sack.git ~/.dotfiles/bin/sack && cd ~/.dotfiles/bin/sack && chmod +x install_sack.sh && ./install_sack.sh
+fi
+
+# Install nvm and global node.
+if [ ! -d "$HOME/.nvm" ]; then
+  mkdir -p $HOME/.nvm
+fi
+curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm install 15
+nvm alias default 15
+npm install -g npm
+npm update -g
+
+# Install npm packags.
+npm install -g gatsby-cli
+npm install -g firebase-tools
+npm install -g lighthouse
+npm install -g yarn
+npm install -g alfred-vpnutil
+
+# Disable gatsby telemetry.
+gatsby telemetry --disable
+
+# Install Composer.
+curl -Ss https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+
+# Install Composer project dependencies.
+composer global require drush/config-extra \
+pantheon-systems/terminus \
+squizlabs/php_codesniffer \
+dealerdirect/phpcodesniffer-composer-installer \
+drupal/coder \
+mglaman/drupal-check
+
+# Run Composer global update.
+composer global update
+
+# Install Drush.
+# https://docs.drush.org/en/8.x/install/.
+wget -O drush.phar https://github.com/drush-ops/drush/releases/download/8.4.6/drush.phar
+chmod +x drush.phar
+sudo mv drush.phar /usr/local/bin/drush
+
 if [ ! $(uname -p) == "arm" ]; then
-
-  # Install Sack.
-  if [ ! -d ~/.dotfiles/bin/sack ]; then
-    git clone https://github.com/sampson-chen/sack.git ~/.dotfiles/bin/sack && cd ~/.dotfiles/bin/sack && chmod +x install_sack.sh && ./install_sack.sh
-  fi
-
-  # Install nvm and global node.
-  if [ ! -d "$HOME/.nvm" ]; then
-    mkdir -p $HOME/.nvm
-  fi
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-  nvm install 14
-  nvm alias default 14
-  npm install -g npm
-  npm update -g
-
-  # Install npm packags.
-  npm install -g gatsby-cli
-  npm install -g firebase-tools
-  npm install -g lighthouse
-  npm install -g yarn
-  npm install -g alfred-vpnutil
-
-  # Disable gatsby telemetry.
-  gatsby telemetry --disable
-
-  # Install Composer.
-  curl -Ss https://getcomposer.org/installer | php
-
-  if [ $(uname) == "Darwin" ]; then
-    mv composer.phar /usr/local/bin/composer
-    else sudo mv composer.phar /usr/local/bin/composer
-  fi
-
-  # Install Composer project dependencies.
-  composer global require drush/config-extra \
-  pantheon-systems/terminus \
-  squizlabs/php_codesniffer \
-  dealerdirect/phpcodesniffer-composer-installer \
-  drupal/coder \
-  mglaman/drupal-check
-
-  # Run Composer global update.
-  composer global update
-
-  # Install Drush.
-  # https://docs.drush.org/en/8.x/install/.
-  if [ $(uname) == "Darwin" ]
-    then
-      curl -OL https://github.com/drush-ops/drush/releases/download/8.4.6/drush.phar
-      chmod +x drush.phar
-      mv drush.phar /usr/local/bin/drush
-    else
-      wget -O drush.phar https://github.com/drush-ops/drush/releases/download/8.4.6/drush.phar
-      chmod +x drush.phar
-      sudo mv drush.phar /usr/local/bin/drush
-  fi
-
   # Install Google Cloud SDK
   if ! `cat /proc/cpuinfo | grep -qv "Raspberry Pi"`; then
     rm -rf $HOME/bin/google-cloud-sdk
