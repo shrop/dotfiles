@@ -167,6 +167,11 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   if [ ! -f ~/bin/xcodedark.itermcolors ]; then
     cd ~/bin && wget https://raw.githubusercontent.com/arzg/vim-colors-xcode/master/xcodedark.itermcolors
   fi
+
+  # Update Flutter.
+  if which flutter > /dev/null; then
+    flutter upgrade
+  fi
 fi
 
 # Install Homebrew and macOS specific apps for Intel Macs.
