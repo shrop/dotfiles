@@ -122,6 +122,11 @@ export PATH="$HOME/.yarn/bin:$PATH"
 # Go lang paths.
 export GOPATH=$HOME/golang
 export GOROOT=/usr/local/opt/go/libexec
+# Ghange path based on Homebrew install location.
+if [ ! -d "/usr/local/opt/go/libexec" ]
+then
+    export GOROOT=/opt/homebrew/opt/go/libexec
+fi
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
