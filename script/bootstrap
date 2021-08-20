@@ -321,10 +321,10 @@ pantheon-systems/terminus \
 squizlabs/php_codesniffer \
 dealerdirect/phpcodesniffer-composer-installer \
 drupal/coder \
-mglaman/drupal-check
+mglaman/drupal-check --with-dependencies
 
 # Run Composer global update.
-composer global update
+composer global update --with-dependencies
 
 # Install Drush.
 # https://docs.drush.org/en/8.x/install/.
