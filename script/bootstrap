@@ -296,8 +296,8 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | ba
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-nvm install 15
-nvm alias default 15
+nvm install 16
+nvm alias default 16
 npm install -g npm
 npm update -g
 
@@ -305,7 +305,6 @@ npm update -g
 npm install -g gatsby-cli
 npm install -g firebase-tools
 npm install -g lighthouse
-npm install -g yarn
 npm install -g alfred-vpnutil
 
 # Disable gatsby telemetry.
