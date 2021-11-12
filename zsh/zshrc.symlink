@@ -125,14 +125,14 @@ export GOROOT=/usr/local/opt/go/libexec
 # Ghange path based on Homebrew install location.
 if [ ! -d "/usr/local/opt/go/libexec" ]
 then
-    export GOROOT=/opt/homebrew/opt/go/libexec
+  export GOROOT=/opt/homebrew/opt/go/libexec
 fi
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
 # Brew PHP binary added to paths.
-export PATH="/usr/local/opt/php@7.4/bin:$PATH"
-export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
+PATH="/opt/homebrew/opt/php@7.4/bin:$PATH"'
+PATH="/opt/homebrew/opt/php@7.4/sbin:$PATH"'
 
 # Brew paths.
 export PATH="/usr/local/sbin:$PATH"
