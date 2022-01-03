@@ -144,6 +144,7 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install mosh
   $which brew install netlifyctl
   $which brew install nmap
+  $which brew install pantheon-systems/external/terminus
   $which brew install php@7.4
   $which brew install pv
   $which brew install reattach-to-user-namespace
@@ -202,6 +203,7 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "i386" ]; then
   $which brew install mosh
   $which brew install netlifyctl
   $which brew install nmap
+  $which brew install pantheon-systems/external/terminus
   $which brew install php@7.4
   $which brew install pv
   $which brew install reattach-to-user-namespace
@@ -316,7 +318,6 @@ sudo mv composer.phar /usr/local/bin/composer
 
 # Install Composer project dependencies.
 composer global require drush/config-extra \
-pantheon-systems/terminus \
 squizlabs/php_codesniffer \
 dealerdirect/phpcodesniffer-composer-installer \
 drupal/coder \
