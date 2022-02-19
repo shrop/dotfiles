@@ -83,9 +83,6 @@ export PATH=$HOME/.config/composer/vendor/bin:$PATH
 # Drush autocomplete.
 source ~/.dotfiles/drush/drush.complete.sh
 
-# Add env var for local meteor packages.
-export PACKAGE_DIRS="$HOME/Projects/Community/Meteor/meteor-packages"
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Extra completions.
@@ -100,10 +97,6 @@ alias kts="tmux kill-server"
 # My standard drush coder setup as an alias.
 alias phpcs="phpcs --standard=Drupal,DrupalPractice --extensions=php,module,inc,install,test,profile,theme"
 alias phpcbf="phpcbf --standard=Drupal,DrupalPractice --extensions=php,module,inc,install,test,profile,theme"
-
-# Docker4Drupal Drush aliases for Drupal 7 and Drupal 8.
-alias drushd4d7="docker-compose exec --user 82 php drush --root=/var/www/html"
-alias drushd4d8="docker-compose exec --user 82 php drush --root=/var/www/html/web"
 
 # Allowing opening of Sublime Text 3 in tmux sessions
 alias subl="reattach-to-user-namespace subl"
