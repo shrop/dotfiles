@@ -118,6 +118,8 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   if ! which brew > /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
+
+  # CLI installs.
   $which brew update
   $which brew upgrade
   $which brew tap netlify/netlifyctl
@@ -160,6 +162,9 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install watchman
   $which brew install wget
 
+  # macOS apps.
+  $which brew install --cask browserosaurus
+
   # Download iTerm2 theme.
   if [ ! -f ~/bin/xcodedark.itermcolors ]; then
     cd ~/bin && wget https://raw.githubusercontent.com/arzg/vim-colors-xcode/master/xcodedark.itermcolors
@@ -176,6 +181,8 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "i386" ]; then
   if ! which brew > /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
+
+  # CLI installs.
   $which brew update
   $which brew upgrade
   $which brew tap netlify/netlifyctl
@@ -219,6 +226,9 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "i386" ]; then
   $which brew install watch
   $which brew install watchman
   $which brew install wget
+
+  # macOS apps.
+  $which brew install --cask browserosaurus
 
   # Download iTerm2 theme.
   if [ ! -f ~/bin/xcodedark.itermcolors ]; then
