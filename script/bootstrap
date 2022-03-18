@@ -338,12 +338,18 @@ composer global update --with-dependencies
 
 # Install Drush.
 # https://docs.drush.org/en/8.x/install/.
-wget -O drush.phar https://github.com/drush-ops/drush/releases/download/8.4.6/drush.phar
+wget -O drush.phar https://github.com/drush-ops/drush/releases/download/8.4.10/drush.phar
 chmod +x drush.phar
 sudo mv drush.phar /usr/local/bin/drush
 
+# Install Acquia CLI.
+# https://docs.acquia.com/acquia-cli/install/.
+curl -OL https://github.com/acquia/cli/releases/latest/download/acli.phar
+chmod +x acli.phar
+sudo mv composer.phar /usr/local/bin/composer
+
+# Install Google Cloud SDK
 if [ ! $(uname -p) == "arm" ]; then
-  # Install Google Cloud SDK
   if ! `cat /proc/cpuinfo | grep -qv "Raspberry Pi"`; then
     rm -rf $HOME/bin/google-cloud-sdk
     curl https://sdk.cloud.google.com > install.sh
