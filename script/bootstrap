@@ -176,74 +176,6 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   fi
 fi
 
-# Install Homebrew and macOS specific apps for Intel Macs.
-if [ $(uname) == "Darwin" ] && [ $(uname -p) == "i386" ]; then
-  if ! which brew > /dev/null; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  fi
-
-  # CLI installs.
-  $which brew update
-  $which brew upgrade
-  $which brew tap netlify/netlifyctl
-  $which brew tap dart-lang/dart
-  $which brew install ansible
-  $which brew install awscli
-  $which brew install clamav
-  $which brew install cocoapods
-  $which brew install ctags
-  $which brew install dart
-  $which brew install deno
-  $which brew install dos2unix
-  $which brew install drud/ddev/ddev
-  $which brew install fzf
-  $which brew install git
-  $which brew install go
-  $which brew install htop
-  $which brew install httpie
-  $which brew install httrack
-  $which brew install inetutils
-  $which brew install jo
-  $which brew install jq
-  $which brew install jsonpp
-  $which brew install mariadb
-  $which brew install mosh
-  $which brew install netlifyctl
-  $which brew install nmap
-  $which brew install pantheon-systems/external/terminus
-  $which brew install php@7.4
-  $which brew install pv
-  $which brew install reattach-to-user-namespace
-  $which brew install redis
-  $which brew install ssh-copy-id
-  $which brew install the_silver_searcher
-  $which brew install textql
-  $which brew install tig
-  $which brew install tmux
-  $which brew install tmuxinator
-  $which brew install tree
-  $which brew install vim
-  $which brew install watch
-  $which brew install watchman
-  $which brew install wget
-
-  # macOS apps.
-  $which brew install --cask browserosaurus
-
-  # Download iTerm2 theme.
-  if [ ! -f ~/bin/xcodedark.itermcolors ]; then
-    cd ~/bin && wget https://raw.githubusercontent.com/arzg/vim-colors-xcode/master/xcodedark.itermcolors
-  fi
-
-  # Install wuzz.
-  go get github.com/asciimoo/wuzz
-
-  # Update Flutter.
-  if which flutter > /dev/null; then
-    flutter upgrade
-  fi
-fi
-
 # Install Debian Linux specific apps.
 if [ -f /etc/debian_version ]; then
   sudo apt-get update
@@ -324,7 +256,7 @@ gatsby telemetry --disable
 
 # Install Composer.
 curl -Ss https://getcomposer.org/installer | php
-sudo mv composer.phar /usr/local/bin/composer
+mv composer.phar ~/bin/composer
 
 # Install Composer project dependencies.
 composer global require drush/config-extra \
@@ -340,22 +272,20 @@ composer global update --with-dependencies
 # https://docs.drush.org/en/8.x/install/.
 wget -O drush.phar https://github.com/drush-ops/drush/releases/download/8.4.10/drush.phar
 chmod +x drush.phar
-sudo mv drush.phar /usr/local/bin/drush
+mv drush.phar ~/bin/drush
 
 # Install Acquia CLI.
 # https://docs.acquia.com/acquia-cli/install/.
 curl -OL https://github.com/acquia/cli/releases/latest/download/acli.phar
 chmod +x acli.phar
-sudo mv composer.phar /usr/local/bin/composer
+mv acli.phar ~/bin/acli
 
 # Install Google Cloud SDK
-if [ ! $(uname -p) == "arm" ]; then
-  if ! `cat /proc/cpuinfo | grep -qv "Raspberry Pi"`; then
-    rm -rf $HOME/bin/google-cloud-sdk
-    curl https://sdk.cloud.google.com > install.sh
-    bash install.sh --disable-prompts --install-dir=$HOME/bin
-    rm -f install.sh
-  fi
+if ! `cat /proc/cpuinfo | grep -qv "Raspberry Pi"`; then
+  rm -rf $HOME/bin/google-cloud-sdk
+  curl https://sdk.cloud.google.com > install.sh
+  bash install.sh --disable-prompts --install-dir=$HOME/bin
+  rm -f install.sh
 fi
 
 echo ''
