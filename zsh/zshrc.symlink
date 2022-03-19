@@ -124,10 +124,10 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
 # Brew PHP binary added to paths.
-export PATH="/usr/local/opt/php@7.4/bin:$PATH"'
-export PATH="/usr/local/opt/php@7.4/sbin:$PATH"'
-export PATH="/opt/homebrew/opt/php@7.4/bin:$PATH"'
-export PATH="/opt/homebrew/opt/php@7.4/sbin:$PATH"'
+export PATH="/usr/local/opt/php@7.4/bin:$PATH"
+export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
+export PATH="/opt/homebrew/opt/php@7.4/bin:$PATH"
+export PATH="/opt/homebrew/opt/php@7.4/sbin:$PATH"
 
 # Brew paths.
 export PATH="/usr/local/sbin:$PATH"
