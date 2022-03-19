@@ -281,12 +281,10 @@ chmod +x acli.phar
 mv acli.phar ~/bin/acli
 
 # Install Google Cloud SDK
-if ! `cat /proc/cpuinfo | grep -qv "Raspberry Pi"`; then
-  rm -rf $HOME/bin/google-cloud-sdk
-  curl https://sdk.cloud.google.com > install.sh
-  bash install.sh --disable-prompts --install-dir=$HOME/bin
-  rm -f install.sh
-fi
+rm -rf $HOME/bin/google-cloud-sdk
+curl https://sdk.cloud.google.com > install.sh
+bash install.sh --disable-prompts --install-dir=$HOME/bin
+rm -f install.sh
 
 echo ''
 echo '  All installed!'
