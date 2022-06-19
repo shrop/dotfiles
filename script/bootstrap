@@ -128,9 +128,11 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install awscli
   $which brew install clamav
   $which brew install cocoapods
+  $which brew install colima
   $which brew install ctags
   $which brew install dart
   $which brew install deno
+  $which brew install docker
   $which brew install dos2unix
   $which brew install drud/ddev/ddev
   $which brew install fzf
