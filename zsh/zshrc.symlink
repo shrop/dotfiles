@@ -138,5 +138,8 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 # Flutter path.
 export PATH="$HOME/bin/flutter/bin:$PATH"
 
+# Firebase CLI path.
+export PATH="$HOME/.pub-cache/bin:$PATH"
+
 # Google Cloud SDK path.
 export PATH="$HOME/bin/google-cloud-sdk/bin:$PATH"
