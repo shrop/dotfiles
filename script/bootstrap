@@ -273,7 +273,7 @@ composer global update --with-dependencies
 
 # Install Drush.
 # https://docs.drush.org/en/8.x/install/.
-wget -O drush.phar https://github.com/drush-ops/drush/releases/download/8.4.10/drush.phar
+wget -O drush.phar https://github.com/drush-ops/drush/releases/download/8.4.11/drush.phar
 chmod +x drush.phar
 mv drush.phar ~/bin/drush
 
