@@ -83,6 +83,10 @@ export PATH=$HOME/.config/composer/vendor/bin:$PATH
 # Drush autocomplete.
 source ~/.dotfiles/drush/drush.complete.sh
 
+# Drush 8.x PHP 8.1 deprecation error fix.
+# https://github.com/drush-ops/drush-launcher/issues/96#issuecomment-1012371598
+export BOX_REQUIREMENT_CHECKER=0
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Extra completions.
