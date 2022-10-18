@@ -153,6 +153,7 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install pv
   $which brew install reattach-to-user-namespace
   $which brew install redis
+  $which brew install sass/sass/sass
   $which brew install shellcheck
   $which brew install ssh-copy-id
   $which brew install the_silver_searcher
