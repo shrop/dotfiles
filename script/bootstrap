@@ -251,13 +251,8 @@ npm update -g
 
 # Install npm packags.
 npm install -g yarn --force
-npm install -g gatsby-cli
 npm install -g firebase-tools
 npm install -g lighthouse
-npm install -g alfred-vpnutil
-
-# Disable gatsby telemetry.
-gatsby telemetry --disable
 
 # Install Composer.
 curl -Ss https://getcomposer.org/installer | php
