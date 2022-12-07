@@ -150,6 +150,7 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install nmap
   $which brew install pantheon-systems/external/terminus
   $which brew install php@8.1
+  $which brew install postgresql
   $which brew install pv
   $which brew install reattach-to-user-namespace
   $which brew install redis
