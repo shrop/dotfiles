@@ -169,6 +169,7 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
 
   # macOS apps.
   $which brew install --cask browserosaurus
+  $which brew install --cask pgadmin4
 
   # Download iTerm2 theme.
   if [ ! -f ~/bin/xcodedark.itermcolors ]; then
