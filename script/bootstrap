@@ -172,7 +172,7 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install watchman
   $which brew install wget
 
-  # macOS apps.
+  # macOS apps.``
   $which brew install --cask pgadmin4
 
   # Download iTerm2 theme.
