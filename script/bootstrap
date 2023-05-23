@@ -122,8 +122,9 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   # CLI installs.
   $which brew update
   $which brew upgrade
-  $which brew tap netlify/netlifyctl
   $which brew tap dart-lang/dart
+  $which brew tap homebrew/core
+  $which brew tap netlify/netlifyctl
   $which brew install ansible
   $which brew install awscli
   $which brew install clamav
@@ -154,7 +155,7 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install pantheon-systems/external/terminus
   $which brew install php@8.1
   $which brew install platformsh/tap/platformsh-cli
-  $which brew install postgresql
+  $which brew install postgresql@14
   $which brew install pv
   $which brew install reattach-to-user-namespace
   $which brew install redis
@@ -172,7 +173,6 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install wget
 
   # macOS apps.
-  $which brew install --cask browserosaurus
   $which brew install --cask pgadmin4
 
   # Download iTerm2 theme.
