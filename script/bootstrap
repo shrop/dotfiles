@@ -172,9 +172,6 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install watchman
   $which brew install wget
 
-  # macOS apps.``
-  $which brew install --cask pgadmin4
-
   # Download iTerm2 theme.
   if [ ! -f ~/bin/xcodedark.itermcolors ]; then
     cd ~/bin && wget https://raw.githubusercontent.com/arzg/vim-colors-xcode/master/xcodedark.itermcolors
