@@ -138,6 +138,7 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install dos2unix
   $which brew install drud/ddev/ddev
   $which brew install fzf
+  $which brew install gh
   $which brew install git
   $which brew install go
   $which brew install gpatch
@@ -189,6 +190,7 @@ if [ -f /etc/debian_version ]; then
   sudo apt-get -y install ansible
   sudo apt-get -y install ctags
   sudo apt-get -y install dos2unix
+  sudo apt-get -y install gh
   sudo apt-get -y install htop
   sudo apt-get -y install httpie
   sudo apt-get -y install jo
