@@ -172,6 +172,7 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install watch
   $which brew install watchman
   $which brew install wget
+  $which brew install yt-dlp
 
   # Download iTerm2 theme.
   if [ ! -f ~/bin/xcodedark.itermcolors ]; then
