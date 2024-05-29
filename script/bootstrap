@@ -123,7 +123,6 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew update
   $which brew upgrade
   $which brew tap dart-lang/dart
-  $which brew tap homebrew/core
   $which brew tap netlify/netlifyctl
   $which brew install ansible
   $which brew install awscli
