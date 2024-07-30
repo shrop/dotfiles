@@ -20,6 +20,7 @@
         gpr-upstream = !sh -c \"git fetch upstream pull/${1}/head:pr/${1} && git checkout pr/${1}\" -
         # git-update-master: Update a local repo, rebase upstream/master, and push the newly updated branch to the fork (origin).
         gum = !sh -c \"git fetch upstream && git rebase upstream/master && git push origin master\" -
+        tickets = !sh -c \"git log --pretty=oneline --merges "$1" && git log --pretty=oneline "$1" | grep -e '[A-Z]\\+-[0-9]\\+' -o | sort -u \" -]
 [difftool "Kaleidoscope"]
         cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
