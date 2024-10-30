@@ -136,6 +136,9 @@ export PATH="/opt/homebrew/opt/php@8.1/sbin:$PATH"
 # Brew paths.
 export PATH="/usr/local/sbin:$PATH"
 
+# Java runtime path.
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-22.jdk/Contents/Home"
+
 # Ruby paths.
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 

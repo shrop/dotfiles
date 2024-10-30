@@ -146,6 +146,7 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install httrack
   $which brew install inetutils
   $which brew install jo
+  $which brew install jordanbaird-ice
   $which brew install jq
   $which brew install mariadb
   $which brew install mkcert nss
