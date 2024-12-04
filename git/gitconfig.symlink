@@ -22,6 +22,7 @@
         gum = !sh -c \"git fetch upstream && git rebase upstream/master && git push origin master\" -
         tickets = !sh -c \"git log --pretty=oneline --merges "$1" && git log --pretty=oneline "$1" | grep -e '[A-Z]\\+-[0-9]\\+' -o | sort -u \" -]
         tickets-delimited = !sh -c \"git tickets "$1" | tr -s '\\r\\n' ',' | sed 's/,*$//g'\" -
+        summary = !sh -c \"git log --reverse ${1:-origin/develop}...head --no-merges  --format='- %s %n%w(64,2,2)%-b' | sed -r '/^\\s*$/d' | sed 's/^  /  - /g'\" -
 [difftool "Kaleidoscope"]
         cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
