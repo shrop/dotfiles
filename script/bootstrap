@@ -260,6 +260,7 @@ npm install -g yarn --force
 npm install -g firebase-tools
 npm install -g lighthouse
 npm install -g static-marks
+npm install -g vercel
 
 # Install Composer.
 curl -Ss https://getcomposer.org/installer | php
