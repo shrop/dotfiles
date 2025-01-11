@@ -164,6 +164,7 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install shellcheck
   $which brew install ssh-copy-id
   $which brew install the_silver_searcher
+  $which brew install tailscale
   $which brew install tig
   $which brew install tmux
   $which brew install tmuxinator
@@ -187,7 +188,12 @@ fi
 
 # Install Debian Linux specific apps.
 if [ -f /etc/debian_version ]; then
+  # Add Tailscale's GPG key and repository first
+  curl -fsSL https://pkgs.tailscale.com/stable/debian/bookworm.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+  curl -fsSL https://pkgs.tailscale.com/stable/debian/bookworm.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+
   sudo apt-get update
+  # Add tailscale to the existing apt-get installs
   sudo apt-get -y install ansible
   sudo apt-get -y install ctags
   sudo apt-get -y install dos2unix
@@ -207,6 +213,7 @@ if [ -f /etc/debian_version ]; then
   sudo apt-get -y install redis-tools
   sudo apt-get -y install ruby
   sudo apt-get -y install silversearcher-ag
+  sudo apt-get -y install tailscale
   sudo apt-get -y install tig
   sudo apt-get -y install tmux
   sudo apt-get -y install tree
@@ -293,6 +300,18 @@ rm -rf $HOME/bin/google-cloud-sdk
 curl https://sdk.cloud.google.com > install.sh
 bash install.sh --disable-prompts --install-dir=$HOME/bin
 rm -f install.sh
+
+setup_zsh() {
+  info 'setting up zsh'
+
+  # Create zsh completion directory if it doesn't exist
+  if [ ! -d "/usr/local/share/zsh/site-functions" ]; then
+    sudo mkdir -p "/usr/local/share/zsh/site-functions"
+    sudo chmod 755 "/usr/local/share/zsh/site-functions"
+  fi
+
+  # ... rest of your zsh setup ...
+}
 
 echo ''
 echo '  All installed!'
