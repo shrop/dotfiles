@@ -113,6 +113,11 @@ if [ ! -f ~/bash_completion ]; then
   mkdir -p ~/bin
 fi
 
+# Install Oh My Zsh.
+if [ ! -d $HOME/.oh-my-zsh ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
 # Install Homebrew and macOS specific apps for Apple Silicon Macs.
 if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   if ! which brew > /dev/null; then
