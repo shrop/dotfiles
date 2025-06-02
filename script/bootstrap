@@ -129,6 +129,7 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew upgrade
   $which brew tap dart-lang/dart
   $which brew tap netlify/netlifyctl
+  $which brew install 1password-cli
   $which brew install ansible
   $which brew install awscli
   $which brew install clamav
@@ -138,7 +139,7 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install deno
   $which brew install docker
   $which brew install dos2unix
-  $which brew install drud/ddev/ddev
+  $which brew install ddev/ddev/ddev
   $which brew install fzf
   $which brew install gh
   $which brew install git
