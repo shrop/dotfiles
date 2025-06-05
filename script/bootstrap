@@ -268,11 +268,12 @@ npm install -g npm
 npm update -g
 
 # Install npm packags.
-npm install -g yarn --force
+npm install -g @anthropic-ai/claude-code
 npm install -g firebase-tools
 npm install -g lighthouse
 npm install -g static-marks
 npm install -g vercel
+npm install -g yarn --force
 
 # Install Composer.
 curl -Ss https://getcomposer.org/installer | php
