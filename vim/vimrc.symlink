@@ -105,10 +105,6 @@ set visualbell
 set backspace=eol,start,indent
 set nowrap
 
-" Allow project spricifc .vimrc files
-set exrc
-set secure
-
 " Tab settings.
 set expandtab
 set shiftwidth=2
