@@ -185,6 +185,15 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
     cd ~/bin && wget https://raw.githubusercontent.com/arzg/vim-colors-xcode/master/xcodedark.itermcolors
   fi
 
+  # Install Flutter if it doesn't exist.
+  if ! command -v flutter &> /dev/null; then
+    mkdir -p "$HOME/bin"
+    git clone https://github.com/flutter/flutter.git -b stable || { echo "Failed to clone Flutter repository"; exit 1; }
+    if [ ! -d "$HOME/bin/flutter" ]; then
+      mv flutter "$HOME/bin/"
+    fi
+  fi
+  
   # Update Flutter.
   if which flutter > /dev/null; then
     flutter upgrade
