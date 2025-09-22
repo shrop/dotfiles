@@ -133,7 +133,6 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install ansible
   $which brew install awscli
   $which brew install clamav
-  $which brew install cocoapods
   $which brew install ctags
   $which brew install dart
   $which brew install deno
@@ -179,6 +178,17 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install watchman
   $which brew install wget
   $which brew install yt-dlp
+
+  # Install rbenv and Ruby.
+  $which brew install rbenv ruby-build
+  rbenv init
+  rbenv install 3.3.4
+  rbenv global 3.3.4
+  gem install cocoapods xcodeproj
+  ruby -e "require 'xcodeproj'; puts Xcodeproj::VERSION"
+  
+  # Install cocoapods.
+  $which brew install cocoapods
 
   # Download iTerm2 theme.
   if [ ! -f ~/bin/xcodedark.itermcolors ]; then

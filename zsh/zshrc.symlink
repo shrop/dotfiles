@@ -153,3 +153,8 @@ export PATH="$HOME/bin/google-cloud-sdk/bin:$PATH"
 
 # Local ZSH environment settings (not committed).
 source ~/.dotfiles/zsh/zshrc.local
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/shrop/.lmstudio/bin"
+# End of LM Studio CLI section
+
