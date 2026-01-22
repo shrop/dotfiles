@@ -139,9 +139,11 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install docker
   $which brew install dos2unix
   $which brew install ddev/ddev/ddev
+  $which brew install ffmpeg
   $which brew install fzf
   $which brew install gh
   $which brew install git
+  $which brew install gemini-cli
   $which brew install go
   $which brew install gpatch
   $which brew install htop
@@ -156,6 +158,7 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install mosh
   $which brew install netlifyctl
   $which brew install nmap
+  $which brew install openjdk
   $which brew install orbstack
   $which brew install pantheon-systems/external/terminus
   $which brew install php@8.2
