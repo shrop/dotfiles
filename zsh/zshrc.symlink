@@ -158,3 +158,7 @@ source ~/.dotfiles/zsh/zshrc.local
 export PATH="$PATH:/Users/shrop/.lmstudio/bin"
 # End of LM Studio CLI section
 
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+# OpenClaw Completion
+source "/Users/shrop/.openclaw/completions/openclaw.zsh"
