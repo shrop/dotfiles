@@ -165,6 +165,7 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install platformsh/tap/platformsh-cli
   $which brew install postgresql@14
   $which brew install pv
+  $which brew install pygments
   $which brew install reattach-to-user-namespace
   $which brew install redis
   $which brew install sass/sass/sass
