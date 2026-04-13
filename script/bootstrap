@@ -288,8 +288,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 nvm install 22
 nvm alias default 22
-npm install -g npm
-npm update -g
+nvm use 22
+# Keep npm as bundled with this Node install; self-updating npm here can break nvm-managed installs.
+npm --version
 
 # Install npm packags.
 npm install -g @anthropic-ai/claude-code
