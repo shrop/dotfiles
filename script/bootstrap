@@ -151,7 +151,6 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install httrack
   $which brew install inetutils
   $which brew install jo
-  $which brew install jordanbaird-ice
   $which brew install jq
   $which brew install mariadb
   $which brew install mkcert nss
@@ -174,6 +173,7 @@ if [ $(uname) == "Darwin" ] && [ $(uname -p) == "arm" ]; then
   $which brew install ssh-copy-id
   $which brew install the_silver_searcher
   $which brew install tailscale
+  $which brew install thaw
   $which brew install tig
   $which brew install tmux
   $which brew install tmuxinator
