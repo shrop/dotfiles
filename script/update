@@ -1,0 +1,160 @@
+#!/usr/bin/env bash
+#
+# update - Update all components of the dotfiles setup
+
+set -e
+
+DOTFILES_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+info() {
+  printf "${BLUE}==>${NC} %s\n" "$1"
+}
+
+success() {
+  printf "${GREEN}✔${NC} %s\n" "$1"
+}
+
+error() {
+  printf "${RED}✖${NC} %s\n" "$1"
+}
+
+warn() {
+  printf "${YELLOW}⚠${NC} %s\n" "$1"
+}
+
+# Update dotfiles repository
+update_dotfiles() {
+  info "Updating dotfiles repository..."
+  cd "$DOTFILES_ROOT"
+  
+  # Check for uncommitted changes
+  if ! git diff-index --quiet HEAD --; then
+    warn "You have uncommitted changes in your dotfiles"
+    read -p "Stash changes and continue? [y/N] " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      git stash push -m "Update script auto-stash $(date +%Y-%m-%d_%H:%M:%S)"
+      success "Changes stashed"
+    else
+      error "Update cancelled"
+      exit 1
+    fi
+  fi
+  
+  git pull origin main
+  success "Dotfiles updated"
+  
+  # Update submodules if any
+  if [[ -f .gitmodules ]]; then
+    git submodule update --init --recursive
+    success "Submodules updated"
+  fi
+}
+
+# Update Oh My Zsh
+update_oh_my_zsh() {
+  if [[ -d "$HOME/.oh-my-zsh" ]]; then
+    info "Updating Oh My Zsh..."
+    (cd "$HOME/.oh-my-zsh" && git pull origin master)
+    success "Oh My Zsh updated"
+  fi
+}
+
+# Update Zsh plugins
+update_zsh_plugins() {
+  info "Updating Zsh plugins..."
+  
+  # Update spaceship prompt
+  if [[ -d "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt" ]]; then
+    (cd "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt" && git pull)
+    success "Spaceship prompt updated"
+  fi
+  
+  # Update syntax highlighting
+  if [[ -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]]; then
+    (cd "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" && git pull)
+    success "Zsh syntax highlighting updated"
+  fi
+}
+
+# Update Vim plugins
+update_vim_plugins() {
+  if command -v vim >/dev/null 2>&1; then
+    info "Updating Vim plugins..."
+    vim +PlugUpgrade +PlugUpdate +qall
+    success "Vim plugins updated"
+  fi
+}
+
+# Update global npm packages
+update_npm_packages() {
+  if command -v npm >/dev/null 2>&1; then
+    info "Updating global npm packages..."
+    npm update -g
+    success "npm packages updated"
+  fi
+}
+
+# Update Homebrew packages (macOS)
+update_homebrew() {
+  if [[ "$(uname)" == "Darwin" ]] && command -v brew >/dev/null 2>&1; then
+    info "Updating Homebrew packages..."
+    brew update
+    brew upgrade
+    brew cleanup
+    success "Homebrew packages updated"
+  fi
+}
+
+# Update apt packages (Linux)
+update_apt() {
+  if [[ -f /etc/debian_version ]] && command -v apt-get >/dev/null 2>&1; then
+    info "Updating apt packages..."
+    sudo apt-get update
+    sudo apt-get upgrade -y
+    sudo apt-get autoremove -y
+    success "apt packages updated"
+  fi
+}
+
+# Update Composer packages
+update_composer() {
+  if command -v composer >/dev/null 2>&1; then
+    info "Updating Composer packages..."
+    composer global update --with-dependencies
+    success "Composer packages updated"
+  fi
+}
+
+# Main update process
+main() {
+  echo "🚀 Updating dotfiles and dependencies..."
+  echo
+  
+  update_dotfiles
+  update_oh_my_zsh
+  update_zsh_plugins
+  update_vim_plugins
+  update_npm_packages
+  update_homebrew
+  update_apt
+  update_composer
+  
+  echo
+  success "All updates complete!"
+  
+  # Remind to restart shell
+  echo
+  warn "You may need to restart your shell for some changes to take effect"
+  warn "Run: exec \$SHELL"
+}
+
+# Run main function
+main "$@"

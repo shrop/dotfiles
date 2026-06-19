@@ -1,0 +1,86 @@
+#!/usr/bin/env zsh
+# Example: Consolidated PATH management for zshrc
+# This demonstrates a cleaner approach to managing PATH exports
+
+# Define base paths that should come first
+typeset -U base_paths=(
+  "/opt/homebrew/bin"
+  "/opt/homebrew/sbin"
+  "/usr/local/bin"
+  "/usr/local/sbin"
+)
+
+# Define user-specific paths
+typeset -U user_paths=(
+  "$HOME/bin"
+  "$HOME/.dotfiles/bin"
+  "$HOME/.composer/vendor/bin"
+  "$HOME/.config/composer/vendor/bin"
+  "$HOME/.yarn/bin"
+  "$HOME/.pub-cache/bin"
+  "$HOME/bin/google-cloud-sdk/bin"
+)
+
+# Define language-specific paths
+typeset -U lang_paths=(
+  "$GOPATH/bin"
+  "$GOROOT/bin"
+  "/usr/local/opt/ruby/bin"
+  "$HOME/bin/flutter/bin"
+)
+
+# Define version-specific paths (these might change based on installed versions)
+typeset -U version_paths=(
+  "/usr/local/opt/php@8.1/bin"
+  "/usr/local/opt/php@8.1/sbin"
+  "/opt/homebrew/opt/php@8.1/bin"
+  "/opt/homebrew/opt/php@8.1/sbin"
+)
+
+# Function to add paths safely (only if they exist)
+add_to_path() {
+  local position=$1
+  shift
+  local paths=("$@")
+  
+  for p in $paths; do
+    if [[ -d "$p" ]]; then
+      if [[ "$position" == "prepend" ]]; then
+        PATH="$p:$PATH"
+      else
+        PATH="$PATH:$p"
+      fi
+    fi
+  done
+}
+
+# Build PATH in order of priority
+# Start with system PATH
+PATH="/usr/bin:/bin:/usr/sbin:/sbin"
+
+# Add base paths (highest priority)
+add_to_path prepend $base_paths
+
+# Add user paths
+add_to_path prepend $user_paths
+
+# Add language paths
+add_to_path append $lang_paths
+
+# Add version-specific paths
+add_to_path append $version_paths
+
+# Remove duplicates and export
+typeset -U PATH
+export PATH
+
+# Optional: Debug function to show what's in PATH
+show_path() {
+  echo "PATH contents:"
+  echo $PATH | tr ':' '\n' | nl
+}
+
+# Optional: Function to check if a directory is in PATH
+in_path() {
+  [[ ":$PATH:" == *":$1:"* ]]
+}
